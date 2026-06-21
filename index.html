@@ -23,6 +23,11 @@
     <meta name="twitter:description" content="Get a professional website for your business. Starting at ₹3,500. Delivered in 3–7 days." />
     <meta name="twitter:image" content="https://webadda.in/og-image.png" />
 
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="webadda.in" />
+    <meta name="geo.region" content="IN" />
+    <link rel="alternate" href="https://webadda.in" hreflang="en-IN" />
+
     <link rel="canonical" href="https://webadda.in" />
     <link rel="manifest" href="/manifest.json" />
 
@@ -63,6 +68,26 @@
           navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed:', err));
         });
       }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "webadda.in",
+      "url": "https://webadda.in/"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://webadda.in/"
+      }]
+    }
     </script>
   </head>
   <body>
