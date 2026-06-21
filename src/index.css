@@ -296,6 +296,7 @@
     box-shadow: 0 4px 20px rgba(37, 99, 235, 0.35);
     position: relative;
     overflow: hidden;
+    z-index: 0;
   }
   .btn-primary::before {
     content: '';
@@ -304,6 +305,7 @@
     background: linear-gradient(135deg, #3b82f6, #2563eb);
     opacity: 0;
     transition: opacity 0.3s ease;
+    z-index: -1;
   }
   .btn-primary::after {
     content: '';
@@ -313,6 +315,7 @@
     opacity: 0;
     pointer-events: none;
     transform-origin: center;
+    z-index: -1;
   }
   .btn-primary:active::after {
     opacity: 1;
@@ -335,6 +338,7 @@
     box-shadow: 0 4px 20px rgba(22, 163, 74, 0.35);
     position: relative;
     overflow: hidden;
+    z-index: 0;
   }
   .btn-whatsapp::after {
     content: '';
@@ -344,6 +348,7 @@
     opacity: 0;
     pointer-events: none;
     transform-origin: center;
+    z-index: -1;
   }
   .btn-whatsapp:active::after {
     opacity: 1;
@@ -363,6 +368,7 @@
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    z-index: 0;
   }
   .btn-ghost::after {
     content: '';
@@ -372,6 +378,7 @@
     opacity: 0;
     pointer-events: none;
     transform-origin: center;
+    z-index: -1;
   }
   .btn-ghost:active::after {
     opacity: 1;
