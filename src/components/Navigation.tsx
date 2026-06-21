@@ -121,6 +121,12 @@ export default function Navigation() {
   const handleNavClick = (href: string) => {
     setMenuOpen(false);
     setShowMegaMenu(false);
+    
+    if (window.location.pathname !== '/' && href.startsWith('#')) {
+      window.location.href = '/' + href;
+      return;
+    }
+
     const el = document.querySelector(href);
     if (el) {
       if (lenis) {
@@ -179,8 +185,13 @@ export default function Navigation() {
         >
           {/* Logo */}
           <motion.a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+            href="/"
+            onClick={(e) => { 
+              if (window.location.pathname === '/') {
+                e.preventDefault(); 
+                window.scrollTo({ top: 0, behavior: 'smooth' }); 
+              }
+            }}
             className="flex items-center gap-2.5 group z-10"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}

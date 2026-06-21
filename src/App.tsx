@@ -8,6 +8,10 @@ import { ErrorBoundary } from './components/ErrorBoundary';
 import { Skeleton } from './components/ui/skeleton';
 import NotFound from './components/NotFound';
 
+// Legal pages
+const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
+const TermsOfService = lazy(() => import('./components/TermsOfService'));
+
 // Lazy load below-the-fold components
 const ProblemSolution = lazy(() => import('./components/ProblemSolution'));
 const Packages = lazy(() => import('./components/Packages'));
@@ -107,6 +111,26 @@ export default function App() {
     document.addEventListener('click', handleClick);
     return () => document.removeEventListener('click', handleClick);
   }, []);
+
+  if (currentPath === '/privacy-policy') {
+    return (
+      <Suspense fallback={<Skeleton className="w-full h-screen rounded-none opacity-20" />}>
+        <ErrorBoundary>
+          <PrivacyPolicy />
+        </ErrorBoundary>
+      </Suspense>
+    );
+  }
+
+  if (currentPath === '/terms-of-service') {
+    return (
+      <Suspense fallback={<Skeleton className="w-full h-screen rounded-none opacity-20" />}>
+        <ErrorBoundary>
+          <TermsOfService />
+        </ErrorBoundary>
+      </Suspense>
+    );
+  }
 
   if (currentPath !== '/') {
     return <NotFound />;

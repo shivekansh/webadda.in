@@ -41,6 +41,10 @@ const WhatsAppIcon = () => (
 export default function Footer() {
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
     e.preventDefault();
+    if (window.location.pathname !== '/' && href.startsWith('#')) {
+      window.location.href = '/' + href;
+      return;
+    }
     const el = document.querySelector(href);
     if (el) {
       if (lenis) {
@@ -221,6 +225,10 @@ export default function Footer() {
             © {new Date().getFullYear()} webadda.in. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
+            <div className="hidden md:flex gap-4 text-sm text-slate-600">
+              <a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a>
+              <a href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</a>
+            </div>
             <span className="text-slate-600 text-sm">Made with ❤️ for Indian businesses</span>
             <motion.button
               onClick={() => {
