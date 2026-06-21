@@ -164,7 +164,7 @@ function PackageCard({ pkg, index }: { pkg: Package; index: number }) {
       )}
 
       <motion.div
-        ref={tilt.ref as any}
+        ref={tilt.ref as unknown as React.Ref<HTMLDivElement>}
         onMouseMove={tilt.handleMouseMove}
         onMouseLeave={() => { tilt.handleMouseLeave(); setFlipped(false); }}
         onMouseEnter={() => setFlipped(true)}

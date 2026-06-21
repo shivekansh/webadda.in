@@ -146,7 +146,15 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
   return (
     <div
+      role="button"
+      tabIndex={0}
       onClick={() => handleMove(position)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleMove(position);
+        }
+      }}
       className={cn(
         "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out",
         isCenter

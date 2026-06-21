@@ -1,9 +1,12 @@
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense, useState } from 'react';
 import Lenis from 'lenis';
 import { SmoothCursor } from './components/ui/smooth-cursor';
 import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import SectionDivider from './components/SectionDivider';
+import { ErrorBoundary } from './components/ErrorBoundary';
+import { Skeleton } from './components/ui/skeleton';
+import NotFound from './components/NotFound';
 
 // Lazy load below-the-fold components
 const ProblemSolution = lazy(() => import('./components/ProblemSolution'));
@@ -27,6 +30,16 @@ const BackToTop = lazy(() => import('./components/BackToTop').then(module => ({ 
 export let lenis: Lenis | null = null;
 
 export default function App() {
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+
+  useEffect(() => {
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   // Initialize Lenis
   useEffect(() => {
     // Check if the user prefers reduced motion. If so, skip smooth scrolling.
@@ -35,17 +48,17 @@ export default function App() {
       return;
     }
 
+    // Pass standard options, avoiding deprecated ones without breaking types
     lenis = new Lenis({
       duration: 1.2,
       easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      mouseMultiplier: 1,
-      smoothTouch: false,
+      orientation: 'vertical',
+      gestureOrientation: 'vertical',
+      smoothWheel: true,
+      wheelMultiplier: 1,
       touchMultiplier: 2,
       infinite: false,
-    } as any);
+    });
 
     function raf(time: number) {
       lenis?.raf(time);
@@ -66,9 +79,20 @@ export default function App() {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a[href^="#"]') as HTMLAnchorElement;
       if (anchor) {
-        e.preventDefault();
         const id = anchor.getAttribute('href')?.slice(1);
         if (id) {
+          // If it's skip-to-content, handle focus explicitly
+          if (id === 'main-content') {
+            const mainContent = document.getElementById(id);
+            if (mainContent) {
+              e.preventDefault();
+              mainContent.focus();
+              mainContent.scrollIntoView();
+            }
+            return;
+          }
+          
+          e.preventDefault();
           const el = document.getElementById(id);
           if (el) {
             if (lenis) {
@@ -84,83 +108,111 @@ export default function App() {
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
+  if (currentPath !== '/') {
+    return <NotFound />;
+  }
+
   return (
     <div className="min-h-screen text-foreground bg-background antialiased">
+      <a 
+        href="#main-content" 
+        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-white focus:text-black focus:font-bold focus:rounded-md focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500"
+      >
+        Skip to content
+      </a>
+      
       <SmoothCursor />
       {/* Navigation */}
       <Navigation />
 
       {/* Main content */}
-      <main>
+      <main id="main-content" tabIndex={-1} className="focus:outline-none">
         {/* 1. Hero */}
         <Hero />
 
         {/* Suspense boundary for below-the-fold content */}
-        <Suspense fallback={<div className="h-screen bg-background" />}>
-          {/* 1.5 Stats Bar */}
-          <StatsBar />
-          <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
+        <Suspense fallback={<Skeleton className="w-full h-[50vh] rounded-none opacity-20" />}>
+          <ErrorBoundary>
+            <StatsBar />
+            <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
+          </ErrorBoundary>
 
-          {/* 2. Problem / Solution */}
-          <ProblemSolution />
-          <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
+          <ErrorBoundary>
+            <ProblemSolution />
+            <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
+          </ErrorBoundary>
 
-          {/* 3. Service Packages */}
-          <Packages />
-          <SectionDivider type="curve" color="text-[var(--color-bg-secondary)]" />
+          <ErrorBoundary>
+            <Packages />
+            <SectionDivider type="curve" color="text-[var(--color-bg-secondary)]" />
+          </ErrorBoundary>
 
-          {/* Technology Trust Bar */}
-          <TrustBar />
+          <ErrorBoundary>
+            <TrustBar />
+          </ErrorBoundary>
 
-          {/* 4. Capabilities */}
-          <Capabilities />
-          <SectionDivider type="wave" color="text-[var(--color-bg-primary)]" />
+          <ErrorBoundary>
+            <Capabilities />
+            <SectionDivider type="wave" color="text-[var(--color-bg-primary)]" />
+          </ErrorBoundary>
 
-          {/* 5. Industries */}
-          <Industries />
-          <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
+          <ErrorBoundary>
+            <Industries />
+            <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
+          </ErrorBoundary>
 
-          {/* 6. Care Plans */}
-          <CarePlans />
-          <SectionDivider type="curve" color="text-[var(--color-bg-secondary)]" />
+          <ErrorBoundary>
+            <CarePlans />
+            <SectionDivider type="curve" color="text-[var(--color-bg-secondary)]" />
+          </ErrorBoundary>
 
-          {/* 6.5 Why Us */}
-          <WhyUs />
-          <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
+          <ErrorBoundary>
+            <WhyUs />
+            <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
+          </ErrorBoundary>
 
-          {/* 7. Portfolio / Case Studies */}
-          <Portfolio />
-          <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
+          <ErrorBoundary>
+            <Portfolio />
+            <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
+          </ErrorBoundary>
 
-          {/* 8. How We Work */}
-          <Process />
-          <SectionDivider type="curve" color="text-[var(--color-bg-primary)]" />
+          <ErrorBoundary>
+            <Process />
+            <SectionDivider type="curve" color="text-[var(--color-bg-primary)]" />
+          </ErrorBoundary>
 
-          {/* 9. Service Calculator */}
-          <Calculator />
-          <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
+          <ErrorBoundary>
+            <Calculator />
+            <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
+          </ErrorBoundary>
 
-          {/* 10. FAQ */}
-          <FAQ />
-          <SectionDivider type="slant" color="text-[var(--color-bg-secondary)]" />
+          <ErrorBoundary>
+            <FAQ />
+            <SectionDivider type="slant" color="text-[var(--color-bg-secondary)]" />
+          </ErrorBoundary>
 
-          {/* 11. Contact */}
-          <Contact />
+          <ErrorBoundary>
+            <Contact />
+          </ErrorBoundary>
         </Suspense>
       </main>
 
-      <Suspense fallback={null}>
-        {/* Footer */}
-        <Footer />
+      <Suspense fallback={<Skeleton className="w-full h-24 mt-auto rounded-none opacity-10" />}>
+        <ErrorBoundary>
+          <Footer />
+        </ErrorBoundary>
 
-        {/* Floating WhatsApp Widget */}
-        <WhatsAppWidget />
+        <ErrorBoundary>
+          <WhatsAppWidget />
+        </ErrorBoundary>
 
-        {/* Sticky Mobile CTA */}
-        <MobileCTA />
+        <ErrorBoundary>
+          <MobileCTA />
+        </ErrorBoundary>
 
-        {/* Back to top FAB */}
-        <BackToTop />
+        <ErrorBoundary>
+          <BackToTop />
+        </ErrorBoundary>
       </Suspense>
     </div>
   );

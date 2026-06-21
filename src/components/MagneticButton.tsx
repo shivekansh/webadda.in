@@ -17,7 +17,7 @@ export function MagneticButton({ children, className, as = 'button', href, targe
   if (as === 'a') {
     return (
       <motion.a
-        ref={ref as any}
+        ref={ref as unknown as React.Ref<HTMLAnchorElement>}
         href={href}
         target={target}
         rel={rel}
@@ -25,7 +25,7 @@ export function MagneticButton({ children, className, as = 'button', href, targe
         onMouseLeave={handleMouseLeave}
         style={{ x: springX, y: springY }}
         className={className}
-        {...(props as any)}
+        {...(props as unknown as React.ComponentPropsWithoutRef<typeof motion.a>)}
       >
         {children}
       </motion.a>
@@ -34,7 +34,7 @@ export function MagneticButton({ children, className, as = 'button', href, targe
 
   return (
     <motion.button
-      ref={ref as any}
+      ref={ref as unknown as React.Ref<HTMLButtonElement>}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ x: springX, y: springY }}

@@ -59,6 +59,8 @@ function FAQItem({ item, index }: { item: typeof faqs[0]; index: number }) {
       style={{ background: 'var(--color-bg-glass)' }}
     >
       <motion.button
+        id={`faq-btn-${index}`}
+        aria-controls={`faq-content-${index}`}
         whileHover={{ x: 4, transition: { type: 'spring', stiffness: 300, damping: 20 } }}
         onClick={() => setOpen(!open)}
         className="w-full flex items-center justify-between gap-4 p-5 text-left group"
@@ -85,6 +87,9 @@ function FAQItem({ item, index }: { item: typeof faqs[0]; index: number }) {
       <AnimatePresence initial={false}>
         {open && (
           <motion.div
+            id={`faq-content-${index}`}
+            role="region"
+            aria-labelledby={`faq-btn-${index}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -109,6 +114,23 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="section-padding section-mesh relative overflow-hidden">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": faqs.map((faq) => ({
+              "@type": "Question",
+              "name": faq.q,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+              }
+            }))
+          })
+        }}
+      />
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/15 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />

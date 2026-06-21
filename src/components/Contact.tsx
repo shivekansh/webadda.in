@@ -63,7 +63,9 @@ function CustomSelect({ value, onChange, options }: { value: string; onChange: (
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className={`w-full bg-transparent border border-border border rounded-xl px-4 pt-6 pb-2 text-sm text-left transition-all duration-200 outline-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] flex justify-between items-center ${open ? 'border-blue-500/50 ring-2 ring-blue-500/15' : 'border-border hover:border-white/20'}`}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        className={`w-full bg-transparent border border-border rounded-xl px-4 pt-6 pb-2 text-sm text-left transition-all duration-200 outline-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] flex justify-between items-center ${open ? 'border-blue-500/50 ring-2 ring-blue-500/15' : 'border-border hover:border-white/20'}`}
       >
         <span className={value ? 'text-foreground' : 'text-transparent'}>{value || 'Select industry...'}</span>
         <motion.div animate={{ rotate: open ? 180 : 0 }}><ChevronDown className="w-4 h-4 text-muted-foreground" /></motion.div>
@@ -79,6 +81,7 @@ function CustomSelect({ value, onChange, options }: { value: string; onChange: (
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
+            role="listbox"
             className="absolute z-20 top-full left-0 right-0 mt-2 bg-background border border-border rounded-xl shadow-xl overflow-hidden"
           >
             <div className="max-h-60 overflow-y-auto" data-lenis-prevent="true">
@@ -86,6 +89,8 @@ function CustomSelect({ value, onChange, options }: { value: string; onChange: (
                 <button
                   key={opt}
                   type="button"
+                  role="option"
+                  aria-selected={value === opt}
                   onClick={() => { onChange(opt); setOpen(false); }}
                   className="w-full text-left px-4 py-3 text-sm text-muted-foreground hover:bg-blue-500/20 hover:text-foreground transition-colors"
                 >
@@ -105,10 +110,13 @@ export default function Contact() {
   const [errors, setErrors] = useState<Errors>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [touched, setTouched] = useState<Partial<Record<keyof FormData, boolean>>>({});
+  const [cooldown, setCooldown] = useState(false);
   const { particles, fire } = useConfetti();
   const isMounted = useRef(true);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   useEffect(() => {
+    isMounted.current = true;
     return () => { isMounted.current = false; };
   }, []);
 
@@ -128,6 +136,8 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (cooldown) return;
+    
     const allTouched = Object.keys(form).reduce((acc, k) => ({ ...acc, [k]: true }), {});
     setTouched(allTouched as Record<keyof FormData, boolean>);
     const newErrors = validate(form);
@@ -136,9 +146,19 @@ export default function Contact() {
 
     setStatus('submitting');
 
+    abortControllerRef.current = new AbortController();
+    const timeoutId = setTimeout(() => abortControllerRef.current?.abort(), 10000);
+
     // Simulate form submission - in production, route to backend
     try {
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      await new Promise((resolve, reject) => {
+        const timer = setTimeout(resolve, 1500);
+        abortControllerRef.current?.signal.addEventListener('abort', () => {
+          clearTimeout(timer);
+          reject(new Error('Timeout'));
+        });
+      });
+      clearTimeout(timeoutId);
       if (!isMounted.current) return;
       
       // Build a WhatsApp message from the form
@@ -147,9 +167,12 @@ export default function Contact() {
       );
       setStatus('success');
       fire(40);
+      setCooldown(true);
+      setTimeout(() => { if (isMounted.current) setCooldown(false) }, 30000);
+      
       setTimeout(() => {
         if (isMounted.current) {
-          window.open(`https://wa.me/919997954148?text=${msg}`, '_blank');
+          window.location.href = `https://wa.me/919997954148?text=${msg}`;
         }
       }, 1000);
     } catch {
@@ -399,6 +422,7 @@ export default function Contact() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                       <div className="relative">
                         <input type="text" id="name" placeholder="Your Name *" value={form.name}
+                          maxLength={100}
                           onChange={e => update('name', e.target.value)} onBlur={() => blur('name')}
                           className={inputClass('name')} />
                         <label htmlFor="name" className={labelClass}>Your Name *</label>
@@ -406,6 +430,7 @@ export default function Contact() {
                       </div>
                       <div className="relative">
                         <input type="text" id="business" placeholder="Business Name" value={form.business}
+                          maxLength={100}
                           onChange={e => update('business', e.target.value)}
                           className="peer w-full bg-transparent border border-border rounded-xl px-4 pt-6 pb-2 text-sm text-foreground placeholder-transparent transition-all duration-200 outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/15 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] form-input-focus" />
                         <label htmlFor="business" className={labelClass}>Business Name</label>
@@ -419,6 +444,7 @@ export default function Contact() {
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
                       <div className="relative">
                         <input type="tel" id="phone" placeholder="Phone Number *" value={form.phone}
+                          maxLength={15}
                           onChange={e => update('phone', e.target.value)} onBlur={() => blur('phone')}
                           className={inputClass('phone')} />
                         <label htmlFor="phone" className={labelClass}>Phone Number *</label>
@@ -426,6 +452,7 @@ export default function Contact() {
                       </div>
                       <div className="relative">
                         <input type="email" id="email" placeholder="Email Address" value={form.email}
+                          maxLength={100}
                           onChange={e => update('email', e.target.value)} onBlur={() => blur('email')}
                           className={inputClass('email')} />
                         <label htmlFor="email" className={labelClass}>Email Address</label>
@@ -439,6 +466,7 @@ export default function Contact() {
                         rows={4}
                         placeholder="Tell us about your project *"
                         value={form.message}
+                        maxLength={500}
                         onChange={e => update('message', e.target.value)}
                         onBlur={() => blur('message')}
                         className={`${inputClass('message')} resize-none min-h-[120px]`}
@@ -463,10 +491,10 @@ export default function Contact() {
 
                     <MagneticButton
                       type="submit"
-                      disabled={status === 'submitting'}
+                      disabled={status === 'submitting' || cooldown}
                       className="btn-primary w-full py-4 text-[15px] flex items-center justify-center gap-2.5 disabled:opacity-60 disabled:cursor-not-allowed relative overflow-hidden group"
-                      whileHover={status !== 'submitting' ? "hover" : {}}
-                      whileTap={status !== 'submitting' ? { scale: 0.98, boxShadow: '0 2px 8px rgba(0,0,0,0.2)' } : {}}
+                      whileHover={status !== 'submitting' && !cooldown ? "hover" : {}}
+                      whileTap={status !== 'submitting' && !cooldown ? { scale: 0.98, boxShadow: '0 2px 8px rgba(0,0,0,0.2)' } : {}}
                       variants={{ hover: { scale: 1.02 } }}
                       transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                     >
@@ -474,6 +502,11 @@ export default function Contact() {
                         <>
                           <div className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                           Opening WhatsApp...
+                        </>
+                      ) : cooldown ? (
+                        <>
+                          <Send className="w-4 h-4" />
+                          Please wait before sending again
                         </>
                       ) : (
                         <>
@@ -485,6 +518,9 @@ export default function Contact() {
 
                     <p className="text-slate-600 text-xs text-center mt-3">
                       We reply within a few hours · No spam · No pressure
+                    </p>
+                    <p className="text-slate-500/70 text-[10px] text-center mt-2">
+                      By submitting, you consent to sharing this data via WhatsApp.
                     </p>
                   </motion.form>
                 )}

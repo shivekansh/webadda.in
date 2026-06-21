@@ -33,7 +33,7 @@ export default function WhatsAppWidget() {
   if (!visible) return null;
 
   const sendMessage = (msg: string) => {
-    window.open(`https://wa.me/919997954148?text=${encodeURIComponent(msg)}`, '_blank');
+    window.location.href = `https://wa.me/919997954148?text=${encodeURIComponent(msg)}`;
     setOpen(false);
   };
 
@@ -50,6 +50,9 @@ export default function WhatsAppWidget() {
       <AnimatePresence>
         {open && (
           <motion.div
+            role="dialog"
+            aria-modal="true"
+            aria-label="WhatsApp Chat"
             initial={{ opacity: 0, scale: 0.85, y: 20, originX: 1, originY: 1 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.85, y: 20 }}

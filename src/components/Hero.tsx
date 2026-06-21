@@ -521,7 +521,7 @@ export default function Hero() {
           className="flex flex-col sm:flex-row items-center justify-center gap-3 mb-16"
         >
           <motion.button
-            ref={btnWhatsApp.ref as any}
+            ref={btnWhatsApp.ref as unknown as React.Ref<HTMLButtonElement>}
             onMouseMove={btnWhatsApp.handleMouseMove}
             onMouseLeave={btnWhatsApp.handleMouseLeave}
             style={{ x: btnWhatsApp.springX, y: btnWhatsApp.springY }}
@@ -537,7 +537,7 @@ export default function Hero() {
             WhatsApp Us Free
           </motion.button>
           <motion.button
-            ref={btnPackages.ref as any}
+            ref={btnPackages.ref as unknown as React.Ref<HTMLButtonElement>}
             onMouseMove={btnPackages.handleMouseMove}
             onMouseLeave={btnPackages.handleMouseLeave}
             style={{ x: btnPackages.springX, y: btnPackages.springY }}
