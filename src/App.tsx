@@ -11,6 +11,7 @@ import NotFound from './components/NotFound';
 // Legal pages
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
 const TermsOfService = lazy(() => import('./components/TermsOfService'));
+const ClassLink = lazy(() => import('./components/ClassLink'));
 
 // Lazy load below-the-fold components
 const ProblemSolution = lazy(() => import('./components/ProblemSolution'));
@@ -152,6 +153,17 @@ export default function App() {
       <Suspense fallback={<Skeleton className="w-full h-screen rounded-none opacity-20" />}>
         <ErrorBoundary>
           <TermsOfService />
+        </ErrorBoundary>
+      </Suspense>
+    );
+  }
+
+  const classRoutes = ['/class6', '/class7', '/class8', '/class9', '/class10', '/class11', '/class12'];
+  if (classRoutes.includes(currentPath)) {
+    return (
+      <Suspense fallback={null}>
+        <ErrorBoundary>
+          <ClassLink />
         </ErrorBoundary>
       </Suspense>
     );
