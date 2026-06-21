@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Zap, Mail, Phone, MapPin, ArrowUp, ArrowRight } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowUp, ArrowRight } from 'lucide-react';
 import { lenis } from '../App';
 import { SplitText } from '../utils/textSplitter';
 
@@ -145,9 +145,7 @@ export default function Footer() {
           {/* Brand column */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
-                <Zap className="w-4.5 h-4.5 text-foreground fill-current" />
-              </div>
+              <img src="/favicon.png" alt="webadda.in logo" className="w-9 h-9 object-contain rounded-xl" />
               <div>
                 <span className="font-bold text-foreground text-lg">webadda.in</span>
               </div>

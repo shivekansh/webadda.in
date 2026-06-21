@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
-import { Menu, X, Zap, Sparkles, Crown, Shield, ArrowRight, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sparkles, Crown, Shield, ArrowRight, Sun, Moon } from 'lucide-react';
 import { lenis } from '../App';
 import { MagneticButton } from './MagneticButton';
 import { useTheme } from './theme-provider';
@@ -185,10 +185,7 @@ export default function Navigation() {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
           >
-            <div className="relative w-8 h-8 rounded-lg bg-gradient-to-br from-blue-500 to-violet-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
-              <Zap className="w-4 h-4 text-foreground fill-current" />
-              <div className="absolute inset-0 rounded-lg bg-gradient-to-br from-blue-400 to-violet-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-            </div>
+            <img src="/favicon.png" alt="webadda.in logo" className="w-8 h-8 object-contain rounded-lg" />
             <div>
               <span className="font-bold text-foreground text-[15px] tracking-tight">
                 webadda.in
