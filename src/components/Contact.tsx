@@ -79,9 +79,9 @@ function CustomSelect({ value, onChange, options }: { value: string; onChange: (
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.2 }}
-            className="absolute z-20 top-full left-0 right-0 mt-2 bg-slate-900 border border-border rounded-xl shadow-xl overflow-hidden"
+            className="absolute z-20 top-full left-0 right-0 mt-2 bg-background border border-border rounded-xl shadow-xl overflow-hidden"
           >
-            <div className="max-h-60 overflow-y-auto">
+            <div className="max-h-60 overflow-y-auto" data-lenis-prevent="true">
               {options.map(opt => (
                 <button
                   key={opt}
