@@ -149,13 +149,17 @@ function ParticleCanvas() {
       }
     };
 
-    const draw = (time: number) => {
-      const dt = (time - lastTime) / 1000;
-      lastTime = time;
-      
-      const w = canvas.offsetWidth;
-      const h = canvas.offsetHeight;
-      ctx.clearRect(0, 0, w, h);
+      let isRunning = true;
+
+      const draw = (time: number) => {
+        if (!isRunning) return;
+        
+        const dt = (time - lastTime) / 1000;
+        lastTime = time;
+        
+        const w = canvas.offsetWidth;
+        const h = canvas.offsetHeight;
+        ctx.clearRect(0, 0, w, h);
 
       // Track mouse velocity
       let mouseVel = 0;
@@ -301,9 +305,25 @@ function ParticleCanvas() {
     });
     resizeObserver.observe(canvas);
 
+    const intersectionObserver = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting) {
+        if (!isRunning) {
+          isRunning = true;
+          lastTime = performance.now();
+          animId = requestAnimationFrame(draw);
+        }
+      } else {
+        isRunning = false;
+        cancelAnimationFrame(animId);
+      }
+    });
+    intersectionObserver.observe(canvas);
+
     return () => {
+      isRunning = false;
       cancelAnimationFrame(animId);
       resizeObserver.disconnect();
+      intersectionObserver.disconnect();
       window.removeEventListener('mousemove', handleMouseMove);
       canvas.removeEventListener('mouseleave', handleMouseLeave);
     };
