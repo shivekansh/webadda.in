@@ -1,7 +1,8 @@
 "use client";
 
-import { FC, useEffect, useRef, useState } from "react";
-import { motion, useSpring, useReducedMotion } from "framer-motion";
+import { FC, useEffect, useRef, useState, useCallback } from "react";
+import { motion, useSpring, useReducedMotion, AnimatePresence } from "framer-motion";
+import { MousePointer2 } from "lucide-react";
 
 interface Position {
   x: number;
@@ -68,6 +69,9 @@ export function SmoothCursor({
   const [isVisible, setIsVisible] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
+  // User preference state
+  const [userPrefersCursor, setUserPrefersCursor] = useState<boolean>(true);
+
   const cursorX = useSpring(0, springConfig);
   const cursorY = useSpring(0, springConfig);
   const scale = useSpring(1, {
@@ -75,6 +79,30 @@ export function SmoothCursor({
     stiffness: 500,
     damping: 35,
   });
+
+  // Load user preference on mount
+  useEffect(() => {
+    try {
+      const storedPref = localStorage.getItem("webadda_smooth_cursor");
+      if (storedPref !== null) {
+        setUserPrefersCursor(storedPref === "true");
+      }
+    } catch (e) {
+      console.warn("Could not read smooth cursor preference from localStorage", e);
+    }
+  }, []);
+
+  const toggleCursorPref = useCallback(() => {
+    setUserPrefersCursor((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem("webadda_smooth_cursor", String(next));
+      } catch (e) {
+        console.warn("Could not save smooth cursor preference to localStorage", e);
+      }
+      return next;
+    });
+  }, []);
 
   // Detect desktop pointer capability
   useEffect(() => {
@@ -99,7 +127,11 @@ export function SmoothCursor({
 
   // Track pointer movement
   useEffect(() => {
-    if (!isEnabled || shouldReduceMotion) {
+    if (!isEnabled || shouldReduceMotion || !userPrefersCursor) {
+      // Restore default cursor if disabled by user preference
+      if (!userPrefersCursor && isEnabled) {
+        document.body.style.cursor = "auto";
+      }
       return;
     }
 
@@ -177,33 +209,52 @@ export function SmoothCursor({
         clearTimeout(timeout);
       }
     };
-  }, [cursorX, cursorY, scale, isEnabled, shouldReduceMotion]);
+  }, [cursorX, cursorY, scale, isEnabled, shouldReduceMotion, userPrefersCursor]);
 
   if (!isEnabled || shouldReduceMotion) {
     return null;
   }
 
   return (
-    <motion.div
-      style={{
-        position: "fixed",
-        left: cursorX,
-        top: cursorY,
-        translateX: "-50%",
-        translateY: "-50%",
-        scale: scale,
-        zIndex: 100,
-        pointerEvents: "none",
-        willChange: "transform",
-        opacity: isVisible ? 1 : 0,
-      }}
-      initial={false}
-      animate={{ opacity: isVisible ? 1 : 0 }}
-      transition={{
-        duration: 0.15,
-      }}
-    >
-      {cursor}
-    </motion.div>
+    <>
+      <button
+        onClick={toggleCursorPref}
+        className="fixed bottom-6 left-24 z-50 p-3 rounded-full bg-background border border-border text-muted-foreground hover:text-foreground shadow-2xl transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary group"
+        aria-label={userPrefersCursor ? "Disable custom cursor" : "Enable custom cursor"}
+        title={userPrefersCursor ? "Disable custom cursor" : "Enable custom cursor"}
+      >
+        <MousePointer2 
+          className={`w-5 h-5 transition-all duration-300 ${
+            !userPrefersCursor 
+              ? "opacity-50" 
+              : "text-primary drop-shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+          }`} 
+        />
+      </button>
+
+      <AnimatePresence>
+        {userPrefersCursor && isVisible && (
+          <motion.div
+            style={{
+              position: "fixed",
+              left: cursorX,
+              top: cursorY,
+              translateX: "-50%",
+              translateY: "-50%",
+              scale: scale,
+              zIndex: 100,
+              pointerEvents: "none",
+              willChange: "transform",
+            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15 }}
+          >
+            {cursor}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 }
