@@ -99,7 +99,7 @@ export default function Industries() {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            From restaurants to real estate — we understand the unique needs of local Indian businesses
+            From restaurants to real estate, we understand the unique needs of local Indian businesses
             and build solutions that work in the real world.
           </motion.p>
         </motion.div>
@@ -137,7 +137,7 @@ export default function Industries() {
           </p>
           <p className="text-muted-foreground mb-6 max-w-lg mx-auto">
             We work with all kinds of local businesses. If you have a business and need a website, 
-            we can help — regardless of the industry.
+            we can help, regardless of the industry.
           </p>
           <motion.a
             href="https://wa.me/919997954148?text=Hi!%20I%27d%20like%20to%20discuss%20a%20website%20for%20my%20business."

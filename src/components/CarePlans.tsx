@@ -118,7 +118,7 @@ export default function CarePlans() {
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
             A website is not a one-time thing. Our recurring care plans keep your site updated, 
-            secure, and improving — every single month.
+            secure, and improving, every single month.
           </motion.p>
         </motion.div>
 

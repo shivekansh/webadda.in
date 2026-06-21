@@ -48,7 +48,7 @@ const solutions = [
   {
     icon: Globe,
     title: 'A Website That Sells',
-    desc: 'A fast, professional website that turns visitors into customers — optimized for mobile and easy to find.',
+    desc: 'A fast, professional website that turns visitors into customers. Optimized for mobile and easy to find.',
     color: 'text-blue-400',
     bg: 'from-blue-500/10 to-blue-600/5 border-blue-500/15',
     tag: 'Starter & Growth Plans',
@@ -75,7 +75,7 @@ const solutions = [
   {
     icon: Star,
     title: 'Instant Credibility',
-    desc: 'A polished, modern website that makes your business look as good as it really is — or better.',
+    desc: 'A polished, modern website that makes your business look as good as it really is, or better.',
     color: 'text-amber-400',
     bg: 'from-amber-500/10 to-amber-600/5 border-amber-500/15',
     tag: 'All Plans',
@@ -182,7 +182,7 @@ export default function ProblemSolution() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            These are the real challenges local businesses face — and exactly what we fix.
+            These are the real challenges local businesses face, and exactly what we fix.
           </motion.p>
         </div>
 
@@ -235,7 +235,7 @@ export default function ProblemSolution() {
             <p className="text-2xl font-bold text-foreground mb-2">
               Ready to fix this?
             </p>
-            <p className="text-muted-foreground mb-6">Get a free consultation — no commitment, no pressure. Just clarity.</p>
+            <p className="text-muted-foreground mb-6">Get a free consultation. No commitment, no pressure. Just clarity.</p>
             <motion.a
               href="https://wa.me/919997954148?text=Hi!%20I%27m%20interested%20in%20getting%20a%20website%20for%20my%20business."
               target="_blank"

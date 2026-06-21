@@ -5,11 +5,11 @@ import { ImageWithSkeleton } from './ImageWithSkeleton';
 import AnimatedTestimonialsDemo from './animated-testimonials-demo';
 const caseStudy = {
   title: 'Premium Multi-Vendor E-Commerce Platform',
-  client: 'Confidential — Retail & Fashion Sector',
+  client: 'Confidential | Retail & Fashion Sector',
   status: 'In Production',
   stack: ['Next.js 14', 'TypeScript', 'Tailwind CSS', 'Razorpay', 'MongoDB', 'Prisma'],
   description: 'A fully custom multi-vendor e-commerce marketplace serving thousands of products across multiple categories. Built with a real-time inventory management system, vendor portal, customer dashboards, and integrated payment processing.',
-  problem: 'The client was managing their entire business via WhatsApp and phone calls — no centralized system, no online sales, and losing customers to organized competitors with polished platforms.',
+  problem: 'The client was managing their entire business via WhatsApp and phone calls: no centralized system, no online sales, and losing customers to organized competitors with polished platforms.',
   solution: 'We built a complete e-commerce ecosystem: a beautiful storefront for customers, a vendor management portal for suppliers, a full admin dashboard, and a mobile-optimized checkout with UPI, cards, and wallets.',
   metrics: [
     { label: 'Products Managed', value: '2,000+' },

@@ -7,7 +7,7 @@ const reasons = [
   {
     icon: DollarSign,
     title: 'Transparent Pricing',
-    desc: 'You get a clear, fixed quote before anything starts. No hidden charges, no billing surprises — ever.',
+    desc: 'You get a clear, fixed quote before anything starts. No hidden charges, no billing surprises. Ever.',
     color: 'text-emerald-400',
     bg: 'bg-emerald-500/10 border-emerald-500/20',
   },
@@ -21,7 +21,7 @@ const reasons = [
   {
     icon: HeartHandshake,
     title: 'Human Communication',
-    desc: 'WhatsApp, email, or call — we speak your language, not developer jargon. You\'re always informed.',
+    desc: 'WhatsApp, email, or call: we speak your language, not developer jargon. You\'re always informed.',
     color: 'text-violet-400',
     bg: 'bg-violet-500/10 border-violet-500/20',
   },
@@ -42,7 +42,7 @@ const reasons = [
   {
     icon: Star,
     title: 'Built for Real Outcomes',
-    desc: 'We measure success by more calls, more customers, and better visibility — not just pretty designs.',
+    desc: 'We measure success by more calls, more customers, and better visibility. Not just pretty designs.',
     color: 'text-cyan-400',
     bg: 'bg-cyan-500/10 border-cyan-500/20',
   },

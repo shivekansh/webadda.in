@@ -25,7 +25,7 @@ function isTrackablePointer(pointerType: string) {
 }
 
 /**
- * Branded cursor visual — a subtle glowing dot with
+ * Branded cursor visual: a subtle glowing dot with
  * a faint halo, matching the site's dark premium theme.
  */
 const BrandedCursorDot: FC = () => {

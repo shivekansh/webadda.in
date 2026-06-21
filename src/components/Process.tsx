@@ -56,7 +56,7 @@ const steps = [
     num: '05',
     icon: HeartHandshake,
     title: 'Ongoing Support',
-    desc: 'After launch, we stay by your side. Whether it\'s a small update, a new page, or monthly SEO work — we\'re just a WhatsApp message away.',
+    desc: 'After launch, we stay by your side. Whether it\'s a small update, a new page, or monthly SEO work, we\'re just a WhatsApp message away.',
     deliverable: 'Reliable support whenever you need it',
     duration: 'Ongoing (optional care plans)',
     color: 'text-rose-400',
@@ -117,7 +117,7 @@ export default function Process() {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-xl mx-auto"
           >
-            Getting your website built should be easy. Here's exactly how we work — no technical jargon, no surprises.
+            Getting your website built should be easy. Here's exactly how we work: no technical jargon, no surprises.
           </motion.p>
         </motion.div>
 
@@ -199,7 +199,7 @@ export default function Process() {
               Ready to start Step 1?
             </p>
             <p className="text-muted-foreground text-sm mb-6">
-              It's completely free — just a quick conversation about your business and what you need.
+              It's completely free. Just a quick conversation about your business and what you need.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <motion.a

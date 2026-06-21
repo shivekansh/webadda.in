@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 const faqs = [
   {
     q: 'How much does a website cost?',
-    a: 'Our packages start at ₹3,500 for a simple 5-page website and go up to ₹50,000+ for complex systems with booking, ordering, and dashboards. We always give you a clear quote before you commit — no hidden fees or surprises. The price depends on what you need, and we\'ll help you figure out the right fit.',
+    a: 'Our packages start at ₹3,500 for a simple 5-page website and go up to ₹50,000+ for complex systems with booking, ordering, and dashboards. We always give you a clear quote before you commit: no hidden fees or surprises. The price depends on what you need, and we\'ll help you figure out the right fit.',
   },
   {
     q: 'Do you provide hosting?',
@@ -24,7 +24,7 @@ const faqs = [
   },
   {
     q: 'Do you work with businesses outside your city?',
-    a: 'Absolutely! We are a 100% remote service. We work with businesses all across India — from Delhi to Chennai, Mumbai to Kolkata, and everywhere in between. All communication happens via WhatsApp, email, and video calls.',
+    a: 'Absolutely! We are a 100% remote service. We work with businesses all across India, from Delhi to Chennai, Mumbai to Kolkata, and everywhere in between. All communication happens via WhatsApp, email, and video calls.',
   },
   {
     q: 'Do I need to pay upfront?',
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: 'Will I be able to update the website myself?',
-    a: 'If you choose WordPress, yes — you can update text, images, and products yourself through a simple dashboard. For custom-built sites, we can add a content management panel, or you can use our monthly care plans for updates. We\'ll always make sure you\'re not stuck.',
+    a: 'If you choose WordPress, yes: you can update text, images, and products yourself through a simple dashboard. For custom-built sites, we can add a content management panel, or you can use our monthly care plans for updates. We\'ll always make sure you\'re not stuck.',
   },
   {
     q: 'What happens after the website is live?',
@@ -40,7 +40,7 @@ const faqs = [
   },
   {
     q: 'Can you integrate WhatsApp, Google Maps, and other tools?',
-    a: 'Yes — WhatsApp button, click-to-call, Google Maps, Instagram feed, payment gateways, and many other integrations are part of what we do. Just tell us what you need and we\'ll include it in your quote.',
+    a: 'Yes: WhatsApp button, click-to-call, Google Maps, Instagram feed, payment gateways, and many other integrations are part of what we do. Just tell us what you need and we\'ll include it in your quote.',
   },
 ];
 
@@ -180,7 +180,7 @@ export default function FAQ() {
             <p className="text-xl font-bold text-foreground mb-1">
               Still have questions?
             </p>
-            <p className="text-muted-foreground text-sm">Ask us anything — we reply within a few hours on WhatsApp.</p>
+            <p className="text-muted-foreground text-sm">Ask us anything. We reply within a few hours on WhatsApp.</p>
           </div>
           <div className="flex flex-col sm:flex-row gap-3 flex-shrink-0">
             <motion.a

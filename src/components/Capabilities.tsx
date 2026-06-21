@@ -40,7 +40,7 @@ const capabilities = [
   {
     icon: Calendar,
     title: 'Booking Systems',
-    desc: 'Online appointment booking for clinics, salons, gyms — integrated directly into your website.',
+    desc: 'Online appointment booking for clinics, salons, gyms, integrated directly into your website.',
     tags: ['Appointments', 'Calendar Sync', 'Reminders'],
     color: 'text-amber-400',
     bg: 'from-amber-500/10 to-amber-600/5',
@@ -49,7 +49,7 @@ const capabilities = [
   {
     icon: ShoppingCart,
     title: 'Online Ordering',
-    desc: 'Let customers place orders directly from your website — for restaurants, bakeries, and stores.',
+    desc: 'Let customers place orders directly from your website: for restaurants, bakeries, and stores.',
     tags: ['Menu Management', 'Order Alerts', 'WhatsApp Orders'],
     color: 'text-rose-400',
     bg: 'from-rose-500/10 to-rose-600/5',
@@ -58,7 +58,7 @@ const capabilities = [
   {
     icon: CreditCard,
     title: 'Payment Integration',
-    desc: 'Accept payments online via UPI, cards, and wallets — Razorpay, PhonePe, Stripe.',
+    desc: 'Accept payments online via UPI, cards, and wallets: Razorpay, PhonePe, Stripe.',
     tags: ['Razorpay', 'UPI', 'PhonePe'],
     color: 'text-green-400',
     bg: 'from-green-500/10 to-green-600/5',
@@ -67,7 +67,7 @@ const capabilities = [
   {
     icon: Package,
     title: 'Inventory Management',
-    desc: 'Track stock, manage products, and get low-stock alerts — perfect for kirana and retail stores.',
+    desc: 'Track stock, manage products, and get low-stock alerts: perfect for kirana and retail stores.',
     tags: ['Stock Tracking', 'Product Catalog', 'Alerts'],
     color: 'text-cyan-400',
     bg: 'from-cyan-500/10 to-cyan-600/5',
@@ -103,7 +103,7 @@ const capabilities = [
   {
     icon: Smartphone,
     title: 'Mobile-First Design',
-    desc: 'Every website we build looks and works perfectly on mobile — where most of your customers are.',
+    desc: 'Every website we build looks and works perfectly on mobile, where most of your customers are.',
     tags: ['Responsive', 'Touch-Optimized', 'PWA Ready'],
     color: 'text-pink-400',
     bg: 'from-pink-500/10 to-pink-600/5',
@@ -112,7 +112,7 @@ const capabilities = [
   {
     icon: Gauge,
     title: 'Speed & Performance',
-    desc: 'Fast-loading websites that score well on Core Web Vitals — better experience and better rankings.',
+    desc: 'Fast-loading websites that score well on Core Web Vitals for better experience and better rankings.',
     tags: ['Core Web Vitals', 'Image Optimization', 'CDN'],
     color: 'text-blue-300',
     bg: 'from-blue-400/10 to-blue-500/5',
@@ -217,7 +217,7 @@ export default function Capabilities() {
             transition={{ delay: 0.1 }}
             className="text-lg text-muted-foreground max-w-2xl mx-auto"
           >
-            We combine these building blocks into a custom solution designed exactly for your business — 
+            We combine these building blocks into a custom solution designed exactly for your business.
             only what you need, nothing you don't.
           </motion.p>
         </motion.div>

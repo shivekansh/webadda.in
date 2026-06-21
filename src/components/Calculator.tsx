@@ -48,7 +48,7 @@ function getRecommendation(form: FormState) {
       bg: 'from-violet-500/10 to-violet-600/5',
       range: '₹25,000 – ₹50,000+',
       monthly: form.needsMonthly ? '₹4,999+/month' : null,
-      reason: 'Your requirements include advanced features like payment processing, admin dashboards, or complex ordering systems — these need a custom-built solution.',
+      reason: 'Your requirements include advanced features like payment processing, admin dashboards, or complex ordering systems. These need a custom-built solution.',
       msg: "Hi! I used your website calculator and got a Premium recommendation. I'd love a custom quote.",
     };
   } else if (hasMedium || score >= 2) {
