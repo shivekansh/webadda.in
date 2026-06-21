@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
-import { Menu, X, Sparkles, Crown, Shield, ArrowRight, Sun, Moon } from 'lucide-react';
+import { Menu, X, Zap, Sparkles, Crown, Shield, ArrowRight, Sun, Moon } from 'lucide-react';
 import { lenis } from '../App';
 import { MagneticButton } from './MagneticButton';
 import { useTheme } from './theme-provider';
