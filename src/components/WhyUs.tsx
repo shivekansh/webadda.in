@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Shield, Zap, HeartHandshake, Globe, DollarSign, Star } from 'lucide-react';
+import { Shield, Zap, HeartHandshake, Globe, DollarSign, Star, Palette, Code, LineChart } from 'lucide-react';
 import { useTilt } from '../hooks/useTilt';
 import { SplitText } from '../utils/textSplitter';
 
@@ -128,9 +128,13 @@ export default function WhyUs() {
               className="flex items-center gap-4"
             >
               <div className="flex -space-x-2">
-                {['🧑‍💻', '👩‍🎨', '🧑‍📊'].map((emoji, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-slate-900 bg-slate-800 flex items-center justify-center text-lg">
-                    {emoji}
+                {[
+                  { icon: Palette, color: 'text-pink-500', bg: 'bg-pink-500/10' },
+                  { icon: Code, color: 'text-blue-500', bg: 'bg-blue-500/10' },
+                  { icon: LineChart, color: 'text-emerald-500', bg: 'bg-emerald-500/10' }
+                ].map((item, i) => (
+                  <div key={i} className={`w-10 h-10 rounded-full border-2 border-background ${item.bg} flex items-center justify-center`}>
+                    <item.icon className={`w-4 h-4 ${item.color}`} />
                   </div>
                 ))}
               </div>
