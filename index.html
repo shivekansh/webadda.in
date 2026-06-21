@@ -24,6 +24,7 @@
     <meta name="twitter:image" content="https://webadda.in/og-image.png" />
 
     <link rel="canonical" href="https://webadda.in" />
+    <link rel="manifest" href="/manifest.json" />
 
     <meta name="theme-color" content="#0a0f1e" />
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -56,6 +57,12 @@
           }
         } catch (e) {}
       })();
+
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').catch(err => console.log('SW registration failed:', err));
+        });
+      }
     </script>
   </head>
   <body>

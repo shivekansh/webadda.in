@@ -1,0 +1,21 @@
+{
+  "name": "webadda.in",
+  "short_name": "webadda",
+  "description": "webadda.in builds fast, modern websites for local businesses in India.",
+  "theme_color": "#0a0f1e",
+  "background_color": "#0a0f1e",
+  "display": "standalone",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
