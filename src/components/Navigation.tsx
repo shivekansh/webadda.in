@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform, useMotionTemplate } from 'framer-motion';
 import { Menu, X, Zap, Sparkles, Crown, Shield, ArrowRight, Sun, Moon } from 'lucide-react';
-import { lenis } from '../App';
+import { lenis, navigate } from '../App';
 import { MagneticButton } from './MagneticButton';
 import { useTheme } from './theme-provider';
 import { AnimatedThemeToggler } from './ui/animated-theme-toggler';
@@ -122,8 +122,18 @@ export default function Navigation() {
     setMenuOpen(false);
     setShowMegaMenu(false);
     
-    if (window.location.pathname !== '/' && href.startsWith('#')) {
-      window.location.href = '/' + href;
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    
+    if (p && href.startsWith('#')) {
+      navigate('/');
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) {
+          if (lenis) lenis.scrollTo(el as HTMLElement, { offset: -80 });
+          else el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
       return;
     }
 
@@ -187,8 +197,11 @@ export default function Navigation() {
           <motion.a
             href="/"
             onClick={(e) => { 
-              if (window.location.pathname === '/') {
-                e.preventDefault(); 
+              e.preventDefault(); 
+              const params = new URLSearchParams(window.location.search);
+              if (params.get('p')) {
+                navigate('/');
+              } else {
                 window.scrollTo({ top: 0, behavior: 'smooth' }); 
               }
             }}

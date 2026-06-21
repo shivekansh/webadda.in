@@ -7,13 +7,13 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://webadda.in/privacy-policy</loc>
+    <loc>https://webadda.in/?p=privacy-policy</loc>
     <lastmod>2026-06-21T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://webadda.in/terms-of-service</loc>
+    <loc>https://webadda.in/?p=terms-of-service</loc>
     <lastmod>2026-06-21T00:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

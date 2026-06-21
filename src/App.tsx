@@ -33,15 +33,40 @@ const BackToTop = lazy(() => import('./components/BackToTop').then(module => ({ 
 
 export let lenis: Lenis | null = null;
 
+export const navigate = (path: string) => {
+  const url = new URL(window.location.href);
+  if (path === '/') {
+    url.searchParams.delete('p');
+  } else {
+    url.searchParams.set('p', path.replace(/^\//, ''));
+  }
+  // Keep the hash if navigating to home so scrolling works
+  if (path !== '/' && url.hash) {
+    url.hash = '';
+  }
+  window.history.pushState({}, '', url.toString());
+  window.dispatchEvent(new Event('pushstate'));
+};
+
 export default function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const getInitialPath = () => {
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    return p ? `/${p}` : '/';
+  };
+
+  const [currentPath, setCurrentPath] = useState(getInitialPath());
 
   useEffect(() => {
-    const handlePopState = () => {
-      setCurrentPath(window.location.pathname);
+    const handleLocationChange = () => {
+      setCurrentPath(getInitialPath());
     };
-    window.addEventListener('popstate', handlePopState);
-    return () => window.removeEventListener('popstate', handlePopState);
+    window.addEventListener('popstate', handleLocationChange);
+    window.addEventListener('pushstate', handleLocationChange);
+    return () => {
+      window.removeEventListener('popstate', handleLocationChange);
+      window.removeEventListener('pushstate', handleLocationChange);
+    };
   }, []);
 
   // Initialize Lenis

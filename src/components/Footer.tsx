@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, ArrowUp, ArrowRight } from 'lucide-react';
-import { lenis } from '../App';
+import { lenis, navigate } from '../App';
 import { SplitText } from '../utils/textSplitter';
 
 const footerLinks = {
@@ -41,8 +41,18 @@ const WhatsAppIcon = () => (
 export default function Footer() {
   const handleNavClick = (e: React.MouseEvent<HTMLButtonElement>, href: string) => {
     e.preventDefault();
-    if (window.location.pathname !== '/' && href.startsWith('#')) {
-      window.location.href = '/' + href;
+    const params = new URLSearchParams(window.location.search);
+    const p = params.get('p');
+    
+    if (p && href.startsWith('#')) {
+      navigate('/');
+      setTimeout(() => {
+        const el = document.querySelector(href);
+        if (el) {
+          if (lenis) lenis.scrollTo(el as HTMLElement, { offset: -80 });
+          else el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
       return;
     }
     const el = document.querySelector(href);
@@ -226,8 +236,8 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-6">
             <div className="hidden md:flex gap-4 text-sm text-slate-600">
-              <a href="/privacy-policy" className="hover:text-foreground transition-colors">Privacy Policy</a>
-              <a href="/terms-of-service" className="hover:text-foreground transition-colors">Terms of Service</a>
+              <a href="?p=privacy-policy" onClick={(e) => { e.preventDefault(); navigate('/privacy-policy'); }} className="hover:text-foreground transition-colors">Privacy Policy</a>
+              <a href="?p=terms-of-service" onClick={(e) => { e.preventDefault(); navigate('/terms-of-service'); }} className="hover:text-foreground transition-colors">Terms of Service</a>
             </div>
             <span className="text-slate-600 text-sm">Made with ❤️ for Indian businesses</span>
             <motion.button
