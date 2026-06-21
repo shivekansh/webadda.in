@@ -249,15 +249,15 @@ export default function Navigation() {
                     <AnimatePresence>
                       {showMegaMenu && (
                         <motion.div
-                          initial={{ opacity: 0, y: 8 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 8 }}
+                          initial={{ opacity: 0, y: 8, x: "-100px" }}
+                          animate={{ opacity: 1, y: 0, x: "-100px" }}
+                          exit={{ opacity: 0, y: 8, x: "-100px" }}
                           transition={{ type: 'spring', stiffness: 300, damping: 25 }}
-                          className="absolute top-[calc(100%+16px)] left-1/2 -translate-x-1/2 w-[800px] glass rounded-2xl p-6 shadow-2xl z-50 cursor-default"
+                          className="absolute top-[calc(100%+16px)] left-0 w-[700px] lg:w-[800px] bg-background border border-border rounded-2xl p-6 shadow-2xl z-50 cursor-default"
                           onMouseEnter={handleMouseEnterServices}
                           onMouseLeave={handleMouseLeaveServices}
                         >
-                          <div className="absolute -top-3 left-1/2 -translate-x-1/2 w-6 h-6 rotate-45 border-l border-t border-border bg-background z-[-1]" />
+                          <div className="absolute -top-3 left-[140px] w-6 h-6 rotate-45 border-l border-t border-border bg-background z-[-1]" />
                           
                           <div className="grid grid-cols-4 gap-4">
                             {servicesDropdown.map((service, idx) => (
