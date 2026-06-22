@@ -99,17 +99,12 @@
 
 @layer utilities {
   .glass {
-    @apply bg-background/60 border border-white/10;
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
+    background: var(--color-bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--color-border);
     position: relative;
     transition: border-color 0.3s ease;
-  }
-  @media (min-width: 768px) {
-    .glass {
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-    }
   }
   .glass:hover {
     border-color: rgba(148, 163, 184, 0.15);
@@ -443,21 +438,14 @@
 
   /* Section spacing */
   .section-padding {
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-  }
-
-  @media (min-width: 768px) {
-    .section-padding {
-      padding-top: 6rem;
-      padding-bottom: 6rem;
-    }
+    padding-top: 6rem;
+    padding-bottom: 6rem;
   }
 
   @media (min-width: 1024px) {
     .section-padding {
-      padding-top: 8rem;
-      padding-bottom: 8rem;
+      padding-top: 10rem;
+      padding-bottom: 10rem;
     }
   }
 
