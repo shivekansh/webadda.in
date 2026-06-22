@@ -8,8 +8,8 @@ const reasons = [
     icon: DollarSign,
     title: 'Transparent Pricing',
     desc: 'You get a clear, fixed quote before anything starts. No hidden charges, no billing surprises. Ever.',
-    color: 'text-emerald-400',
-    bg: 'bg-emerald-500/10 border-emerald-500/20',
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-500/10 border-cyan-500/20',
   },
   {
     icon: Zap,
@@ -22,29 +22,29 @@ const reasons = [
     icon: HeartHandshake,
     title: 'Human Communication',
     desc: 'WhatsApp, email, or call: we speak your language, not developer jargon. You\'re always informed.',
-    color: 'text-violet-400',
-    bg: 'bg-violet-500/10 border-violet-500/20',
+    color: 'text-sky-400',
+    bg: 'bg-sky-500/10 border-sky-500/20',
   },
   {
     icon: Globe,
     title: 'Pan-India Remote Service',
     desc: 'Doesn\'t matter where in India you are. We work with businesses from J&K to Kerala, fully remote.',
-    color: 'text-amber-400',
-    bg: 'bg-amber-500/10 border-amber-500/20',
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-500/10 border-cyan-500/20',
   },
   {
     icon: Shield,
     title: 'You Own Everything',
     desc: 'Your domain, your hosting, your code. We hand it all over when we\'re done. No lock-in, no dependency.',
-    color: 'text-rose-400',
-    bg: 'bg-rose-500/10 border-rose-500/20',
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/10 border-blue-500/20',
   },
   {
     icon: Star,
     title: 'Built for Real Outcomes',
     desc: 'We measure success by more calls, more customers, and better visibility. Not just pretty designs.',
-    color: 'text-cyan-400',
-    bg: 'bg-cyan-500/10 border-cyan-500/20',
+    color: 'text-sky-400',
+    bg: 'bg-sky-500/10 border-sky-500/20',
   },
 ];
 
@@ -129,9 +129,9 @@ export default function WhyUs() {
             >
               <div className="flex -space-x-2">
                 {[
-                  { icon: Palette, color: 'text-pink-500', bg: 'bg-pink-500/10' },
-                  { icon: Code, color: 'text-blue-500', bg: 'bg-blue-500/10' },
-                  { icon: LineChart, color: 'text-emerald-500', bg: 'bg-emerald-500/10' }
+                  { icon: Palette, color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+                  { icon: Code, color: 'text-blue-400', bg: 'bg-blue-500/10' },
+                  { icon: LineChart, color: 'text-sky-400', bg: 'bg-sky-500/10' }
                 ].map((item, i) => (
                   <div key={i} className={`w-10 h-10 rounded-full border-2 border-background ${item.bg} flex items-center justify-center`}>
                     <item.icon className={`w-4 h-4 ${item.color}`} />

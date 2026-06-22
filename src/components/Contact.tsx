@@ -65,7 +65,7 @@ function CustomSelect({ value, onChange, options }: { value: string; onChange: (
         onClick={() => setOpen(!open)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className={`w-full bg-transparent border border-border rounded-xl px-4 pt-6 pb-2 text-sm text-left transition-all duration-200 outline-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] flex justify-between items-center ${open ? 'border-blue-500/50 ring-2 ring-blue-500/15' : 'border-border hover:border-white/20'}`}
+        className={`w-full bg-transparent border border-border rounded-xl px-4 pt-6 pb-2 text-[16px] md:text-sm text-left transition-all duration-200 outline-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] flex justify-between items-center ${open ? 'border-blue-500/50 ring-2 ring-blue-500/15' : 'border-border hover:border-white/20'}`}
       >
         <span className={value ? 'text-foreground' : 'text-transparent'}>{value || 'Select industry...'}</span>
         <motion.div animate={{ rotate: open ? 180 : 0 }}><ChevronDown className="w-4 h-4 text-muted-foreground" /></motion.div>
@@ -181,7 +181,7 @@ export default function Contact() {
   };
 
   const inputClass = (field: keyof Errors) =>
-    `peer w-full bg-transparent border border-border border rounded-xl px-4 pt-6 pb-2 text-sm text-foreground placeholder-transparent transition-all duration-200 outline-none focus:ring-2 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] form-input-focus ${
+    `peer w-full bg-transparent border border-border border rounded-xl px-4 pt-6 pb-2 text-[16px] md:text-sm text-foreground placeholder-transparent transition-all duration-200 outline-none focus:ring-2 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] form-input-focus ${
       errors[field] && touched[field as keyof typeof touched]
         ? 'border-red-500/50 focus:ring-red-500/20 animate-shake'
         : 'border-border focus:border-blue-500/50 focus:ring-blue-500/15'
@@ -263,8 +263,8 @@ export default function Contact() {
                 value: '+91 99979 54148',
                 sub: 'Mon–Sun, 9am–9pm IST',
                 href: 'tel:+919997954148',
-                color: 'text-emerald-400',
-                border: 'border-emerald-500/20',
+                color: 'text-cyan-400',
+                border: 'border-cyan-500/20',
               },
               {
                 icon: Mail,
@@ -281,8 +281,8 @@ export default function Contact() {
                 value: 'Mon–Sun: 9am–9pm',
                 sub: 'Available all 7 days',
                 href: null,
-                color: 'text-amber-400',
-                border: 'border-amber-500/20',
+                color: 'text-sky-400',
+                border: 'border-sky-500/20',
               },
               {
                 icon: MapPin,
@@ -290,8 +290,8 @@ export default function Contact() {
                 value: 'Pan-India, 100% Remote',
                 sub: 'All communication via WhatsApp / email',
                 href: null,
-                color: 'text-violet-400',
-                border: 'border-violet-500/20',
+                color: 'text-blue-400',
+                border: 'border-blue-500/20',
               },
             ].map((item, i) => (
               <motion.div
@@ -379,11 +379,11 @@ export default function Contact() {
                         initial={{ scale: 0, opacity: 0 }}
                         animate={{ scale: [1, 1.5, 1], opacity: [0, 0.5, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
-                        className="absolute inset-0 bg-emerald-500/20 rounded-full"
+                        className="absolute inset-0 bg-cyan-500/20 rounded-full"
                       />
                       <motion.svg
                         viewBox="0 0 24 24"
-                        className="w-16 h-16 text-emerald-400 relative z-10"
+                        className="w-16 h-16 text-cyan-400 relative z-10"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -432,7 +432,7 @@ export default function Contact() {
                         <input type="text" id="business" placeholder="Business Name" value={form.business}
                           maxLength={100}
                           onChange={e => update('business', e.target.value)}
-                          className="peer w-full bg-transparent border border-border rounded-xl px-4 pt-6 pb-2 text-sm text-foreground placeholder-transparent transition-all duration-200 outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/15 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] form-input-focus" />
+                          className="peer w-full bg-transparent border border-border rounded-xl px-4 pt-6 pb-2 text-[16px] md:text-sm text-foreground placeholder-transparent transition-all duration-200 outline-none focus:border-blue-500/50 focus:ring-2 focus:ring-blue-500/15 shadow-[inset_0_2px_4px_rgba(0,0,0,0.2)] form-input-focus" />
                         <label htmlFor="business" className={labelClass}>Business Name</label>
                       </div>
                     </div>

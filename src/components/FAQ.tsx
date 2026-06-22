@@ -132,8 +132,8 @@ export default function FAQ() {
         }}
       />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/15 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-sky-500/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5">
@@ -152,7 +152,7 @@ export default function FAQ() {
             transition={{ delay: 0 }}
             className="flex justify-center mb-4"
           >
-            <span className="tag tag-amber">Common Questions</span>
+            <span className="tag tag-sky">Common Questions</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0, y: 20 }}

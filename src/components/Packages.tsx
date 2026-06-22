@@ -61,12 +61,12 @@ const packages: Package[] = [
     priceNote: 'One-time project cost',
     idealFor: 'Restaurants, clinics, salons, gyms wanting more leads & better visibility',
     icon: Sparkles,
-    color: 'text-emerald-400',
-    borderColor: 'border-emerald-500/30',
-    bgGrad: 'from-emerald-500/10 to-blue-600/5',
-    iconBg: 'bg-emerald-500/15 border-emerald-500/25',
+    color: 'text-cyan-400',
+    borderColor: 'border-cyan-500/30',
+    bgGrad: 'from-cyan-500/10 to-cyan-600/5',
+    iconBg: 'bg-cyan-500/15 border-cyan-500/25',
     badgeText: 'Most Popular',
-    badgeColor: 'tag-emerald',
+    badgeColor: 'tag-cyan',
     features: [
       'Everything in Starter',
       'Up to 10 custom-designed pages',
@@ -92,12 +92,12 @@ const packages: Package[] = [
     priceNote: 'Custom scoped project',
     idealFor: 'Established businesses needing full systems: ordering, bookings, dashboards',
     icon: Crown,
-    color: 'text-violet-400',
-    borderColor: 'border-violet-500/30',
-    bgGrad: 'from-violet-500/10 to-violet-600/5',
-    iconBg: 'bg-violet-500/15 border-violet-500/25',
+    color: 'text-sky-400',
+    borderColor: 'border-sky-500/30',
+    bgGrad: 'from-sky-500/10 to-sky-600/5',
+    iconBg: 'bg-sky-500/15 border-sky-500/25',
     badgeText: 'Full System',
-    badgeColor: 'tag-violet',
+    badgeColor: 'tag-sky',
     features: [
       'Everything in Growth',
       'Custom web application (Next.js)',
@@ -148,7 +148,7 @@ function PackageCard({ pkg, index }: { pkg: Package; index: number }) {
         disabled={false}
         proximity={64}
         inactiveZone={0.01}
-        variant={pkg.id === 'growth' ? 'emerald' : pkg.id === 'premium' ? 'violet' : 'blue'}
+        variant={pkg.id === 'growth' ? 'cyan' : pkg.id === 'premium' ? 'sky' : 'blue'}
       />
       
       {/* Static border layer beneath */}
@@ -332,7 +332,7 @@ export default function Packages() {
           >
             <SplitText text="Transparent packages," type="words" delay={0.1} />
             <br />
-            <SplitText className="text-gradient-emerald" text="no hidden surprises" type="words" delay={0.4} />
+            <SplitText className="text-gradient-cyan" text="no hidden surprises" type="words" delay={0.4} />
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -364,7 +364,7 @@ export default function Packages() {
           </div>
           <div className="flex justify-center mt-4 gap-1.5">
             {packages.map((_, i) => (
-              <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === activeTab ? 'w-6 bg-emerald-500' : 'w-2 bg-slate-700'}`} />
+              <div key={i} className={`h-1 rounded-full transition-all duration-300 ${i === activeTab ? 'w-6 bg-cyan-500' : 'w-2 bg-slate-700'}`} />
             ))}
           </div>
           <SwipeHint />
@@ -398,8 +398,8 @@ export default function Packages() {
                       <tr>
                         <th className="text-left text-muted-foreground font-medium pb-4 pr-6">Feature</th>
                         <th className="text-center text-blue-400 font-semibold pb-4 px-4">Starter</th>
-                        <th className="text-center text-emerald-400 font-semibold pb-4 px-4">Growth</th>
-                        <th className="text-center text-violet-400 font-semibold pb-4 px-4">Premium</th>
+                        <th className="text-center text-cyan-400 font-semibold pb-4 px-4">Growth</th>
+                        <th className="text-center text-sky-400 font-semibold pb-4 px-4">Premium</th>
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-white/5">
@@ -423,10 +423,10 @@ export default function Packages() {
                             <span className={starter === '–' ? 'text-slate-600' : 'text-blue-400'}>{starter}</span>
                           </td>
                           <td className="py-3 px-4 text-center">
-                            <span className={growth === '–' ? 'text-slate-600' : 'text-emerald-400'}>{growth}</span>
+                            <span className={growth === '–' ? 'text-slate-600' : 'text-cyan-400'}>{growth}</span>
                           </td>
                           <td className="py-3 px-4 text-center">
-                            <span className={premium === '–' ? 'text-slate-600' : 'text-violet-400'}>{premium}</span>
+                            <span className={premium === '–' ? 'text-slate-600' : 'text-sky-400'}>{premium}</span>
                           </td>
                         </tr>
                       ))}

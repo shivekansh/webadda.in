@@ -29,9 +29,9 @@ const plans = [
     price: '₹2,999',
     period: '/month',
     tagline: 'Grow your visibility month by month',
-    color: 'text-emerald-400',
-    border: 'border-emerald-500/30',
-    bg: 'from-emerald-500/10 to-blue-600/5',
+    color: 'text-cyan-400',
+    border: 'border-cyan-500/30',
+    bg: 'from-cyan-500/10 to-blue-600/5',
     icon: TrendingUp,
     badgeText: 'Most Value',
     features: [
@@ -53,9 +53,9 @@ const plans = [
     price: '₹4,999+',
     period: '/month',
     tagline: 'Full digital support, ongoing',
-    color: 'text-violet-600 dark:text-violet-400',
-    border: 'border-violet-500/30',
-    bg: 'from-violet-500/10 to-violet-600/5',
+    color: 'text-sky-600 dark:text-sky-400',
+    border: 'border-sky-500/30',
+    bg: 'from-sky-500/10 to-sky-600/5',
     icon: RefreshCw,
     features: [
       'Everything in Growth Care',
@@ -79,7 +79,7 @@ export default function CarePlans() {
     <section id="care-plans" className="section-padding mesh-bg relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5">
@@ -98,7 +98,7 @@ export default function CarePlans() {
             transition={{ delay: 0 }}
             className="flex justify-center mb-4"
           >
-            <span className="tag tag-emerald">Monthly Plans</span>
+            <span className="tag tag-cyan">Monthly Plans</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0 }}
@@ -108,7 +108,7 @@ export default function CarePlans() {
           >
             <SplitText text="Your website, always" type="words" delay={0.1} />
             <br />
-            <SplitText className="text-gradient-emerald" text="fresh and growing" type="words" delay={0.4} />
+            <SplitText className="text-gradient-cyan" text="fresh and growing" type="words" delay={0.4} />
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -165,7 +165,7 @@ export default function CarePlans() {
               style={{ background: 'var(--color-bg-glass)' }}
             >
               {plan.badgeText && (
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-emerald-500 to-blue-500" />
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-cyan-500 to-blue-500" />
               )}
               <div className="p-7">
                 {/* Icon */}
@@ -179,7 +179,7 @@ export default function CarePlans() {
                     {plan.name}
                   </h3>
                   {plan.badgeText && (
-                    <span className="tag tag-emerald text-[10px] px-2 py-0.5">{plan.badgeText}</span>
+                    <span className="tag tag-cyan text-[10px] px-2 py-0.5">{plan.badgeText}</span>
                   )}
                 </div>
                 <p className={`text-sm mb-5 ${plan.color}`}>{plan.tagline}</p>

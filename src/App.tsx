@@ -5,8 +5,9 @@ import Navigation from './components/Navigation';
 import Hero from './components/Hero';
 import SectionDivider from './components/SectionDivider';
 import { ErrorBoundary } from './components/ErrorBoundary';
-import { Skeleton } from './components/ui/skeleton';
+import { LoaderOne } from './components/ui/loader';
 import NotFound from './components/NotFound';
+import { RenderOnScroll } from './components/RenderOnScroll';
 
 // Legal pages
 const PrivacyPolicy = lazy(() => import('./components/PrivacyPolicy'));
@@ -140,7 +141,7 @@ export default function App() {
 
   if (currentPath === '/privacy-policy') {
     return (
-      <Suspense fallback={<Skeleton className="w-full h-screen rounded-none opacity-20" />}>
+      <Suspense fallback={<LoaderOne className="w-full h-screen" />}>
         <ErrorBoundary>
           <PrivacyPolicy />
         </ErrorBoundary>
@@ -150,7 +151,7 @@ export default function App() {
 
   if (currentPath === '/terms-of-service') {
     return (
-      <Suspense fallback={<Skeleton className="w-full h-screen rounded-none opacity-20" />}>
+      <Suspense fallback={<LoaderOne className="w-full h-screen" />}>
         <ErrorBoundary>
           <TermsOfService />
         </ErrorBoundary>
@@ -161,7 +162,7 @@ export default function App() {
   const classRoutes = ['/class6', '/class7', '/class8', '/class9', '/class10', '/class11', '/class12'];
   if (classRoutes.includes(currentPath)) {
     return (
-      <Suspense fallback={null}>
+      <Suspense fallback={<LoaderOne className="min-h-[200px]" />}>
         <ErrorBoundary>
           <ClassLink />
         </ErrorBoundary>
@@ -189,76 +190,101 @@ export default function App() {
       {/* Main content */}
       <main id="main-content" tabIndex={-1} className="focus:outline-none">
         {/* 1. Hero */}
-        <Hero />
-
-        {/* Suspense boundary for below-the-fold content */}
-        <Suspense fallback={<Skeleton className="w-full h-[50vh] rounded-none opacity-20" />}>
+        <ErrorBoundary>
+          <Hero />
+        </ErrorBoundary>
+        {/* 2. Problem/Solution */}
+        <RenderOnScroll fallback={<LoaderOne className="h-[200px]" />}>
           <ErrorBoundary>
             <StatsBar />
             <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<LoaderOne className="h-[200px]" />}>
           <ErrorBoundary>
             <ProblemSolution />
             <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <Packages />
             <SectionDivider type="curve" color="text-[var(--color-bg-secondary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[10vh]" />}>
           <ErrorBoundary>
             <TrustBar />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <Capabilities />
             <SectionDivider type="wave" color="text-[var(--color-bg-primary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <Industries />
             <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <CarePlans />
             <SectionDivider type="curve" color="text-[var(--color-bg-secondary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <WhyUs />
             <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <Portfolio />
             <SectionDivider type="slant" color="text-[var(--color-bg-primary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <Process />
             <SectionDivider type="curve" color="text-[var(--color-bg-primary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <Calculator />
             <SectionDivider type="wave" color="text-[var(--color-bg-secondary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <FAQ />
             <SectionDivider type="slant" color="text-[var(--color-bg-secondary)]" />
           </ErrorBoundary>
+        </RenderOnScroll>
 
+        <RenderOnScroll fallback={<div className="min-h-[40vh]" />}>
           <ErrorBoundary>
             <Contact />
           </ErrorBoundary>
-        </Suspense>
+        </RenderOnScroll>
       </main>
 
-      <Suspense fallback={<Skeleton className="w-full h-24 mt-auto rounded-none opacity-10" />}>
+      <Suspense fallback={<LoaderOne className="h-24 mt-auto" />}>
         <ErrorBoundary>
           <Footer />
         </ErrorBoundary>

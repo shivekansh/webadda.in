@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { LoaderOne } from './ui/loader';
 
 interface ImageWithSkeletonProps extends React.ImgHTMLAttributes<HTMLImageElement> {
   containerClassName?: string;
@@ -15,9 +16,9 @@ export function ImageWithSkeleton({ src, alt, containerClassName, className, ...
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-slate-800"
+            className="absolute inset-0 bg-slate-800/50 flex items-center justify-center"
           >
-            <div className="absolute inset-0 -translate-x-full animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+            <LoaderOne className="scale-50 opacity-70" />
           </motion.div>
         )}
       </AnimatePresence>

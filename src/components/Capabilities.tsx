@@ -24,45 +24,45 @@ const capabilities = [
     title: 'WordPress Sites',
     desc: 'Easy-to-manage WordPress sites. Update your content yourself, no technical knowledge needed.',
     tags: ['WordPress', 'WooCommerce', 'Elementor'],
-    color: 'text-emerald-400',
-    bg: 'from-emerald-500/10 to-emerald-600/5',
-    border: 'border-emerald-500/15',
+    color: 'text-cyan-400',
+    bg: 'from-cyan-500/10 to-cyan-600/5',
+    border: 'border-cyan-500/15',
   },
   {
     icon: Code2,
     title: 'Next.js Custom Builds',
     desc: 'High-performance web apps built with Next.js for businesses needing full custom systems.',
     tags: ['Next.js', 'TypeScript', 'Tailwind'],
-    color: 'text-violet-400',
-    bg: 'from-violet-500/10 to-violet-600/5',
-    border: 'border-violet-500/15',
+    color: 'text-sky-400',
+    bg: 'from-sky-500/10 to-sky-600/5',
+    border: 'border-sky-500/15',
   },
   {
     icon: Calendar,
     title: 'Booking Systems',
     desc: 'Online appointment booking for clinics, salons, gyms, integrated directly into your website.',
     tags: ['Appointments', 'Calendar Sync', 'Reminders'],
-    color: 'text-amber-400',
-    bg: 'from-amber-500/10 to-amber-600/5',
-    border: 'border-amber-500/15',
+    color: 'text-blue-300',
+    bg: 'from-blue-400/10 to-blue-500/5',
+    border: 'border-blue-400/15',
   },
   {
     icon: ShoppingCart,
     title: 'Online Ordering',
     desc: 'Let customers place orders directly from your website: for restaurants, bakeries, and stores.',
     tags: ['Menu Management', 'Order Alerts', 'WhatsApp Orders'],
-    color: 'text-rose-400',
-    bg: 'from-rose-500/10 to-rose-600/5',
-    border: 'border-rose-500/15',
+    color: 'text-cyan-300',
+    bg: 'from-cyan-400/10 to-cyan-500/5',
+    border: 'border-cyan-400/15',
   },
   {
     icon: CreditCard,
     title: 'Payment Integration',
     desc: 'Accept payments online via UPI, cards, and wallets: Razorpay, PhonePe, Stripe.',
     tags: ['Razorpay', 'UPI', 'PhonePe'],
-    color: 'text-green-400',
-    bg: 'from-green-500/10 to-green-600/5',
-    border: 'border-green-500/15',
+    color: 'text-sky-300',
+    bg: 'from-sky-400/10 to-sky-500/5',
+    border: 'border-sky-400/15',
   },
   {
     icon: Package,
@@ -87,27 +87,27 @@ const capabilities = [
     title: 'SEO Setup',
     desc: 'Technical SEO, meta tags, sitemap, and on-page optimization to help Google find you.',
     tags: ['On-page SEO', 'Schema Markup', 'Sitemap'],
-    color: 'text-orange-400',
-    bg: 'from-orange-500/10 to-orange-600/5',
-    border: 'border-orange-500/15',
+    color: 'text-blue-500',
+    bg: 'from-blue-600/10 to-blue-700/5',
+    border: 'border-blue-600/15',
   },
   {
     icon: MapPin,
     title: 'Google Business Profile',
     desc: 'Set up and optimize your GBP so you appear in local searches and Google Maps.',
     tags: ['GBP Setup', 'Reviews', 'Local SEO'],
-    color: 'text-emerald-300',
-    bg: 'from-emerald-400/10 to-emerald-500/5',
-    border: 'border-emerald-400/15',
+    color: 'text-cyan-500',
+    bg: 'from-cyan-600/10 to-cyan-700/5',
+    border: 'border-cyan-600/15',
   },
   {
     icon: Smartphone,
     title: 'Mobile-First Design',
     desc: 'Every website we build looks and works perfectly on mobile, where most of your customers are.',
     tags: ['Responsive', 'Touch-Optimized', 'PWA Ready'],
-    color: 'text-pink-400',
-    bg: 'from-pink-500/10 to-pink-600/5',
-    border: 'border-pink-500/15',
+    color: 'text-sky-500',
+    bg: 'from-sky-600/10 to-sky-700/5',
+    border: 'border-sky-600/15',
   },
   {
     icon: Gauge,
@@ -178,7 +178,7 @@ export default function Capabilities() {
   return (
     <section id="capabilities" className="section-padding section-mesh relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-emerald-500/15 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
       </div>
 
@@ -198,7 +198,7 @@ export default function Capabilities() {
             transition={{ delay: 0 }}
             className="flex justify-center mb-4"
           >
-            <span className="tag tag-emerald">What We Build</span>
+            <span className="tag tag-cyan">What We Build</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0 }}

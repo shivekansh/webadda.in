@@ -158,8 +158,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       className={cn(
         "absolute left-1/2 top-1/2 cursor-pointer border-2 p-8 transition-all duration-500 ease-in-out",
         isCenter
-          ? "z-10 bg-violet-600 text-white border-violet-500"
-          : "z-0 bg-slate-900 text-slate-300 border-slate-800 hover:border-violet-500/50"
+          ? "z-10 bg-blue-600 text-white border-blue-500"
+          : "z-0 bg-slate-900 text-slate-300 border-slate-800 hover:border-blue-500/50"
       )}
       style={{
         width: cardSize,
@@ -171,7 +171,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           translateY(${isCenter ? -65 : position % 2 ? 15 : -15}px)
           rotate(${isCenter ? 0 : position % 2 ? 2.5 : -2.5}deg)
         `,
-        boxShadow: isCenter ? "0px 8px 0px 4px rgba(139, 92, 246, 0.3)" : "0px 0px 0px 0px transparent"
+        boxShadow: isCenter ? "0px 8px 0px 4px rgba(59, 130, 246, 0.3)" : "0px 0px 0px 0px transparent"
       }}
     >
       <span
@@ -264,8 +264,8 @@ export const StaggerTestimonials: React.FC = () => {
           onClick={() => handleMove(-1)}
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors rounded-xl",
-            "bg-slate-900 border-2 border-slate-800 text-slate-300 hover:bg-violet-600 hover:text-white hover:border-violet-500",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2"
+            "bg-slate-900 border-2 border-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-500",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           )}
           aria-label="Previous testimonial"
         >
@@ -275,8 +275,8 @@ export const StaggerTestimonials: React.FC = () => {
           onClick={() => handleMove(1)}
           className={cn(
             "flex h-14 w-14 items-center justify-center text-2xl transition-colors rounded-xl",
-            "bg-slate-900 border-2 border-slate-800 text-slate-300 hover:bg-violet-600 hover:text-white hover:border-violet-500",
-            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2"
+            "bg-slate-900 border-2 border-slate-800 text-slate-300 hover:bg-blue-600 hover:text-white hover:border-blue-500",
+            "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
           )}
           aria-label="Next testimonial"
         >

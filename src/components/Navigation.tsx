@@ -12,7 +12,7 @@ function ReadingProgress() {
   
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 to-violet-500 origin-left z-[60]"
+      className="fixed top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-blue-500 to-cyan-500 origin-left z-[60]"
       style={{ scaleX }}
     />
   );
@@ -28,21 +28,21 @@ const navLinks = [
 ];
 
 const sectionColors: Record<string, string> = {
-  packages: 'bg-emerald-500/12 border-emerald-500/20 shadow-[0_0_12px_rgba(16,185,129,0.15)]',
+  packages: 'bg-cyan-500/12 border-cyan-500/20 shadow-[0_0_12px_rgba(6,182,212,0.15)]',
   capabilities: 'bg-blue-500/12 border-blue-500/20 shadow-[0_0_12px_rgba(59,130,246,0.15)]',
-  industries: 'bg-indigo-500/12 border-indigo-500/20 shadow-[0_0_12px_rgba(99,102,241,0.15)]',
-  'care-plans': 'bg-emerald-500/12 border-emerald-500/20 shadow-[0_0_12px_rgba(16,185,129,0.15)]',
-  process: 'bg-violet-500/12 border-violet-500/20 shadow-[0_0_12px_rgba(139,92,246,0.15)]',
-  faq: 'bg-amber-500/12 border-amber-500/20 shadow-[0_0_12px_rgba(245,158,11,0.15)]',
+  industries: 'bg-sky-500/12 border-sky-500/20 shadow-[0_0_12px_rgba(14,165,233,0.15)]',
+  'care-plans': 'bg-cyan-500/12 border-cyan-500/20 shadow-[0_0_12px_rgba(6,182,212,0.15)]',
+  process: 'bg-sky-500/12 border-sky-500/20 shadow-[0_0_12px_rgba(14,165,233,0.15)]',
+  faq: 'bg-blue-500/12 border-blue-500/20 shadow-[0_0_12px_rgba(59,130,246,0.15)]',
   contact: 'bg-blue-500/12 border-blue-500/20 shadow-[0_0_12px_rgba(59,130,246,0.15)]',
   hero: 'bg-blue-500/12 border-blue-500/20 shadow-[0_0_12px_rgba(59,130,246,0.15)]',
 };
 
 const servicesDropdown = [
   { icon: Zap, name: 'Starter', desc: 'Basic online presence', price: '₹3,500', color: 'text-blue-400', bg: 'bg-blue-500/10' },
-  { icon: Sparkles, name: 'Growth', desc: 'Lead generation site', price: '₹10,000', color: 'text-emerald-400', bg: 'bg-emerald-500/10' },
-  { icon: Crown, name: 'Premium', desc: 'Full digital system', price: '₹25,000+', color: 'text-violet-400', bg: 'bg-violet-500/10' },
-  { icon: Shield, name: 'Care Plans', desc: 'Monthly maintenance', price: '₹999/mo', color: 'text-amber-400', bg: 'bg-amber-500/10' }
+  { icon: Sparkles, name: 'Growth', desc: 'Lead generation site', price: '₹10,000', color: 'text-cyan-400', bg: 'bg-cyan-500/10' },
+  { icon: Crown, name: 'Premium', desc: 'Full digital system', price: '₹25,000+', color: 'text-sky-400', bg: 'bg-sky-500/10' },
+  { icon: Shield, name: 'Care Plans', desc: 'Monthly maintenance', price: '₹999/mo', color: 'text-blue-400', bg: 'bg-blue-500/10' }
 ];
 
 export default function Navigation() {

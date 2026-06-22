@@ -9,7 +9,7 @@ interface GlowingEffectProps {
   inactiveZone?: number;
   proximity?: number;
   spread?: number;
-  variant?: "default" | "white" | "blue" | "emerald" | "violet";
+  variant?: "default" | "white" | "blue" | "cyan" | "sky";
   glow?: boolean;
   className?: string;
   disabled?: boolean;
@@ -157,31 +157,31 @@ const GlowingEffect = memo(
                   #1d4ed8 calc(75% / var(--repeating-conic-gradient-times)),
                   #60a5fa calc(100% / var(--repeating-conic-gradient-times))
                 )`
-                  : variant === "emerald"
-                  ? `radial-gradient(circle, #34d399 10%, transparent 20%),
-                radial-gradient(circle at 40% 40%, #10b981 5%, transparent 15%),
-                radial-gradient(circle at 60% 60%, #059669 10%, transparent 20%), 
-                radial-gradient(circle at 40% 60%, #047857 10%, transparent 20%),
+                  : variant === "cyan"
+                  ? `radial-gradient(circle, #22d3ee 10%, transparent 20%),
+                radial-gradient(circle at 40% 40%, #06b6d4 5%, transparent 15%),
+                radial-gradient(circle at 60% 60%, #0891b2 10%, transparent 20%), 
+                radial-gradient(circle at 40% 60%, #0e7490 10%, transparent 20%),
                 repeating-conic-gradient(
                   from 236.84deg at 50% 50%,
-                  #34d399 0%,
-                  #10b981 calc(25% / var(--repeating-conic-gradient-times)),
-                  #059669 calc(50% / var(--repeating-conic-gradient-times)), 
-                  #047857 calc(75% / var(--repeating-conic-gradient-times)),
-                  #34d399 calc(100% / var(--repeating-conic-gradient-times))
+                  #22d3ee 0%,
+                  #06b6d4 calc(25% / var(--repeating-conic-gradient-times)),
+                  #0891b2 calc(50% / var(--repeating-conic-gradient-times)), 
+                  #0e7490 calc(75% / var(--repeating-conic-gradient-times)),
+                  #22d3ee calc(100% / var(--repeating-conic-gradient-times))
                 )`
-                  : variant === "violet"
-                  ? `radial-gradient(circle, #a78bfa 10%, transparent 20%),
-                radial-gradient(circle at 40% 40%, #8b5cf6 5%, transparent 15%),
-                radial-gradient(circle at 60% 60%, #7c3aed 10%, transparent 20%), 
-                radial-gradient(circle at 40% 60%, #6d28d9 10%, transparent 20%),
+                  : variant === "sky"
+                  ? `radial-gradient(circle, #38bdf8 10%, transparent 20%),
+                radial-gradient(circle at 40% 40%, #0ea5e9 5%, transparent 15%),
+                radial-gradient(circle at 60% 60%, #0284c7 10%, transparent 20%), 
+                radial-gradient(circle at 40% 60%, #0369a1 10%, transparent 20%),
                 repeating-conic-gradient(
                   from 236.84deg at 50% 50%,
-                  #a78bfa 0%,
-                  #8b5cf6 calc(25% / var(--repeating-conic-gradient-times)),
-                  #7c3aed calc(50% / var(--repeating-conic-gradient-times)), 
-                  #6d28d9 calc(75% / var(--repeating-conic-gradient-times)),
-                  #a78bfa calc(100% / var(--repeating-conic-gradient-times))
+                  #38bdf8 0%,
+                  #0ea5e9 calc(25% / var(--repeating-conic-gradient-times)),
+                  #0284c7 calc(50% / var(--repeating-conic-gradient-times)), 
+                  #0369a1 calc(75% / var(--repeating-conic-gradient-times)),
+                  #38bdf8 calc(100% / var(--repeating-conic-gradient-times))
                 )`
                   : `radial-gradient(circle, #dd7bbb 10%, #dd7bbb00 20%),
                 radial-gradient(circle at 40% 40%, #d79f1e 5%, #d79f1e00 15%),

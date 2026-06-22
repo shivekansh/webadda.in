@@ -2,18 +2,18 @@ import { motion } from 'framer-motion';
 import { SplitText } from '../utils/textSplitter';
 
 const industries = [
-  { emoji: '🍽️', name: 'Restaurants & Cafes', desc: 'Online menu, ordering, table booking', color: 'from-orange-500/15 to-red-500/10', border: 'border-orange-500/20' },
-  { emoji: '🏥', name: 'Clinics & Hospitals', desc: 'Appointment booking, doctor profiles', color: 'from-blue-500/15 to-cyan-500/10', border: 'border-blue-500/20' },
-  { emoji: '✂️', name: 'Salons & Spas', desc: 'Service menu, slot booking, gallery', color: 'from-pink-500/15 to-rose-500/10', border: 'border-pink-500/20' },
-  { emoji: '🏋️', name: 'Gyms & Fitness', desc: 'Membership plans, class schedules', color: 'from-emerald-500/15 to-green-500/10', border: 'border-emerald-500/20' },
-  { emoji: '📚', name: 'Coaching Centers', desc: 'Course catalog, admissions, results', color: 'from-violet-500/15 to-purple-500/10', border: 'border-violet-500/20' },
-  { emoji: '🛒', name: 'Kirana & Retail', desc: 'Product catalog, inventory, orders', color: 'from-amber-500/15 to-yellow-500/10', border: 'border-amber-500/20' },
+  { emoji: '🍽️', name: 'Restaurants & Cafes', desc: 'Online menu, ordering, table booking', color: 'from-blue-500/15 to-cyan-500/10', border: 'border-blue-500/20' },
+  { emoji: '🏥', name: 'Clinics & Hospitals', desc: 'Appointment booking, doctor profiles', color: 'from-cyan-500/15 to-sky-500/10', border: 'border-cyan-500/20' },
+  { emoji: '✂️', name: 'Salons & Spas', desc: 'Service menu, slot booking, gallery', color: 'from-sky-500/15 to-blue-500/10', border: 'border-sky-500/20' },
+  { emoji: '🏋️', name: 'Gyms & Fitness', desc: 'Membership plans, class schedules', color: 'from-blue-500/15 to-cyan-500/10', border: 'border-blue-500/20' },
+  { emoji: '📚', name: 'Coaching Centers', desc: 'Course catalog, admissions, results', color: 'from-cyan-500/15 to-sky-500/10', border: 'border-cyan-500/20' },
+  { emoji: '🛒', name: 'Kirana & Retail', desc: 'Product catalog, inventory, orders', color: 'from-sky-500/15 to-blue-500/10', border: 'border-sky-500/20' },
   { emoji: '🔧', name: 'Hardware Stores', desc: 'Product listing, bulk orders, enquiry', color: 'from-slate-500/15 to-gray-500/10', border: 'border-slate-500/20' },
   { emoji: '🏭', name: 'Manufacturers', desc: 'B2B catalog, enquiry forms, exports', color: 'from-blue-600/15 to-indigo-500/10', border: 'border-blue-600/20' },
   { emoji: '🛋️', name: 'Interior Designers', desc: 'Portfolio, project gallery, contact', color: 'from-teal-500/15 to-cyan-500/10', border: 'border-teal-500/20' },
-  { emoji: '🏢', name: 'Real Estate', desc: 'Property listings, agent profiles', color: 'from-green-600/15 to-emerald-500/10', border: 'border-green-600/20' },
+  { emoji: '🏢', name: 'Real Estate', desc: 'Property listings, agent profiles', color: 'from-cyan-600/15 to-sky-500/10', border: 'border-cyan-600/20' },
   { emoji: '⚖️', name: 'Lawyers & CA Firms', desc: 'Services, consultation, trust signals', color: 'from-indigo-500/15 to-blue-600/10', border: 'border-indigo-500/20' },
-  { emoji: '🚗', name: 'Auto & Service', desc: 'Service booking, parts catalog', color: 'from-red-500/15 to-orange-500/10', border: 'border-red-500/20' },
+  { emoji: '🚗', name: 'Auto & Service', desc: 'Service booking, parts catalog', color: 'from-sky-500/15 to-cyan-500/10', border: 'border-sky-500/20' },
 ];
 
 // Horizontal auto-scroll track
@@ -60,8 +60,8 @@ export default function Industries() {
   return (
     <section id="industries" className="section-padding mesh-bg relative overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/15 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/15 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5">
@@ -80,7 +80,7 @@ export default function Industries() {
             transition={{ delay: 0 }}
             className="flex justify-center mb-4"
           >
-            <span className="tag tag-violet">Industries</span>
+            <span className="tag tag-sky">Industries</span>
           </motion.div>
           <motion.h2
             initial={{ opacity: 0 }}

@@ -79,7 +79,7 @@ export default function Footer() {
                 viewport={{ once: true }}
                 className="mb-2"
               >
-                <span className="tag tag-emerald">Free Consultation</span>
+                <span className="tag tag-cyan">Free Consultation</span>
               </motion.div>
               <motion.h2
                 initial={{ opacity: 0 }}
@@ -171,7 +171,7 @@ export default function Footer() {
 
             <div className="space-y-3">
               <a href="tel:+919997954148" className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
-                <Phone className="w-4 h-4 text-emerald-400" />
+                <Phone className="w-4 h-4 text-cyan-400" />
                 +91 99979 54148
               </a>
               <a href="mailto:shivekansh@gmail.com" className="flex items-center gap-2.5 text-sm text-muted-foreground hover:text-foreground transition-colors">
@@ -179,7 +179,7 @@ export default function Footer() {
                 shivekansh@gmail.com
               </a>
               <div className="flex items-center gap-2.5 text-sm text-muted-foreground">
-                <MapPin className="w-4 h-4 text-violet-400" />
+                <MapPin className="w-4 h-4 text-blue-400" />
                 100% Remote · Pan-India
               </div>
             </div>

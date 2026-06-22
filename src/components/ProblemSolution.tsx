@@ -11,36 +11,36 @@ const problems = [
     icon: WifiOff,
     title: 'No Online Presence',
     desc: 'Customers search online before visiting. Without a website, you\'re invisible to them.',
-    color: 'text-red-400',
-    bg: 'bg-red-500/8 border-red-500/15',
+    color: 'text-sky-400',
+    bg: 'bg-sky-500/8 border-sky-500/15',
   },
   {
     icon: SearchX,
     title: 'Lost on Google',
     desc: 'Competitors with websites show up first. Your business never makes it to page one.',
-    color: 'text-orange-400',
-    bg: 'bg-orange-500/8 border-orange-500/15',
+    color: 'text-cyan-400',
+    bg: 'bg-cyan-500/8 border-cyan-500/15',
   },
   {
     icon: UserX,
     title: 'Losing Leads Every Day',
     desc: 'People who could be your customers are calling someone else because they found them first.',
-    color: 'text-rose-400',
-    bg: 'bg-rose-500/8 border-rose-500/15',
+    color: 'text-blue-400',
+    bg: 'bg-blue-500/8 border-blue-500/15',
   },
   {
     icon: ThumbsDown,
     title: 'Weak First Impression',
     desc: 'Your business looks less credible than competitors. Trust is lost before they even visit.',
-    color: 'text-red-300',
-    bg: 'bg-red-400/8 border-red-400/15',
+    color: 'text-sky-300',
+    bg: 'bg-sky-400/8 border-sky-400/15',
   },
   {
     icon: PhoneCall,
     title: 'Manual Everything',
     desc: 'Answering the same questions repeatedly, taking bookings by phone, managing everything manually.',
-    color: 'text-orange-300',
-    bg: 'bg-orange-400/8 border-orange-400/15',
+    color: 'text-cyan-300',
+    bg: 'bg-cyan-400/8 border-cyan-400/15',
   },
 ];
 
@@ -58,37 +58,37 @@ const solutions = [
     icon: MapPin,
     title: 'Rank Locally on Google',
     desc: 'SEO setup and Google Business Profile so your business appears when nearby customers are searching.',
-    color: 'text-emerald-400',
-    bg: 'from-emerald-500/10 to-emerald-600/5 border-emerald-500/15',
+    color: 'text-cyan-400',
+    bg: 'from-cyan-500/10 to-cyan-600/5 border-cyan-500/15',
     tag: 'All Plans',
-    tagColor: 'tag-emerald',
+    tagColor: 'tag-cyan',
   },
   {
     icon: Users,
     title: 'Automated Lead Capture',
     desc: 'WhatsApp integration, contact forms, and booking systems that capture leads even when you\'re busy.',
-    color: 'text-violet-400',
-    bg: 'from-violet-500/10 to-violet-600/5 border-violet-500/15',
+    color: 'text-sky-400',
+    bg: 'from-sky-500/10 to-sky-600/5 border-sky-500/15',
     tag: 'Growth & Premium',
-    tagColor: 'tag-violet',
+    tagColor: 'tag-sky',
   },
   {
     icon: Star,
     title: 'Instant Credibility',
     desc: 'A polished, modern website that makes your business look as good as it really is, or better.',
-    color: 'text-amber-400',
-    bg: 'from-amber-500/10 to-amber-600/5 border-amber-500/15',
+    color: 'text-blue-400',
+    bg: 'from-blue-500/10 to-blue-600/5 border-blue-500/15',
     tag: 'All Plans',
-    tagColor: 'tag-amber',
+    tagColor: 'tag-blue',
   },
   {
     icon: MessageSquare,
     title: 'Easy Customer Management',
     desc: 'Online orders, appointment booking, and customer enquiries handled through a simple admin dashboard.',
-    color: 'text-blue-300',
-    bg: 'from-blue-400/10 to-blue-500/5 border-blue-400/15',
+    color: 'text-cyan-300',
+    bg: 'from-cyan-400/10 to-cyan-500/5 border-cyan-400/15',
     tag: 'Premium Plan',
-    tagColor: 'tag-blue',
+    tagColor: 'tag-cyan',
   },
 ];
 
@@ -152,7 +152,7 @@ export default function ProblemSolution() {
       {/* Background accents */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/20 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
       </div>
 
       <div className="max-w-7xl mx-auto px-5">
@@ -191,8 +191,8 @@ export default function ProblemSolution() {
           {/* Problems Column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-red-500/15 border border-red-500/20 flex items-center justify-center">
-                <span className="text-red-400 text-sm font-bold">✕</span>
+              <div className="w-8 h-8 rounded-full bg-sky-500/15 border border-sky-500/20 flex items-center justify-center">
+                <span className="text-sky-400 text-sm font-bold">✕</span>
               </div>
               <h3 className="text-xl font-bold text-foreground">
                 The Problems You Face
@@ -208,8 +208,8 @@ export default function ProblemSolution() {
           {/* Solutions Column */}
           <div>
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-8 h-8 rounded-full bg-emerald-500/15 border border-emerald-500/20 flex items-center justify-center">
-                <span className="text-emerald-400 text-sm font-bold">✓</span>
+              <div className="w-8 h-8 rounded-full bg-cyan-500/15 border border-cyan-500/20 flex items-center justify-center">
+                <span className="text-cyan-400 text-sm font-bold">✓</span>
               </div>
               <h3 className="text-xl font-bold text-foreground">
                 What We Solve For You

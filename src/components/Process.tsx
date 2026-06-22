@@ -23,10 +23,10 @@ const steps = [
     desc: 'Within 24 hours, we send you a clear proposal with the recommended package, exact price, timeline, and everything that\'s included.',
     deliverable: 'Detailed quote in your inbox',
     duration: 'Within 24 hours',
-    color: 'text-emerald-400',
-    border: 'border-emerald-500/25',
-    bg: 'from-emerald-500/10 to-emerald-600/5',
-    iconBg: 'bg-emerald-500/15 border-emerald-500/25',
+    color: 'text-cyan-400',
+    border: 'border-cyan-500/25',
+    bg: 'from-cyan-500/10 to-cyan-600/5',
+    iconBg: 'bg-cyan-500/15 border-cyan-500/25',
   },
   {
     num: '03',
@@ -35,10 +35,10 @@ const steps = [
     desc: 'Once you approve, we get to work. We share progress updates via WhatsApp so you always know what\'s happening. You can request tweaks anytime.',
     deliverable: 'Working website preview link',
     duration: '3–30 days depending on plan',
-    color: 'text-violet-400',
-    border: 'border-violet-500/25',
-    bg: 'from-violet-500/10 to-violet-600/5',
-    iconBg: 'bg-violet-500/15 border-violet-500/25',
+    color: 'text-sky-400',
+    border: 'border-sky-500/25',
+    bg: 'from-sky-500/10 to-sky-600/5',
+    iconBg: 'bg-sky-500/15 border-sky-500/25',
   },
   {
     num: '04',
@@ -47,10 +47,10 @@ const steps = [
     desc: 'We do final testing, connect your domain, and go live. We also make sure Google can find your website and your Google Business Profile is set up.',
     deliverable: 'Live website on your domain',
     duration: 'Launch day',
-    color: 'text-amber-400',
-    border: 'border-amber-500/25',
-    bg: 'from-amber-500/10 to-amber-600/5',
-    iconBg: 'bg-amber-500/15 border-amber-500/25',
+    color: 'text-cyan-400',
+    border: 'border-cyan-500/25',
+    bg: 'from-cyan-500/10 to-cyan-600/5',
+    iconBg: 'bg-cyan-500/15 border-cyan-500/25',
   },
   {
     num: '05',
@@ -59,10 +59,10 @@ const steps = [
     desc: 'After launch, we stay by your side. Whether it\'s a small update, a new page, or monthly SEO work, we\'re just a WhatsApp message away.',
     deliverable: 'Reliable support whenever you need it',
     duration: 'Ongoing (optional care plans)',
-    color: 'text-rose-400',
-    border: 'border-rose-500/25',
-    bg: 'from-rose-500/10 to-rose-600/5',
-    iconBg: 'bg-rose-500/15 border-rose-500/25',
+    color: 'text-blue-400',
+    border: 'border-blue-500/25',
+    bg: 'from-blue-500/10 to-blue-600/5',
+    iconBg: 'bg-blue-500/15 border-blue-500/25',
   },
 ];
 
@@ -79,7 +79,7 @@ export default function Process() {
     <section id="process" className="section-padding mesh-bg relative overflow-hidden dot-grid">
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-violet-500/15 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-cyan-500/15 to-transparent" />
       </div>
 
       <div className="max-w-5xl mx-auto px-5">
@@ -127,7 +127,7 @@ export default function Process() {
           <div className="absolute left-7 top-8 bottom-8 w-px bg-transparent border border-border hidden md:block" />
           {/* Animated line */}
           <motion.div 
-            className="absolute left-7 top-8 bottom-8 w-px bg-gradient-to-b from-blue-500 via-violet-500 to-rose-500 hidden md:block origin-top"
+            className="absolute left-7 top-8 bottom-8 w-px bg-gradient-to-b from-blue-500 via-cyan-500 to-sky-500 hidden md:block origin-top"
             style={{ scaleY }}
           />
 
@@ -154,7 +154,7 @@ export default function Process() {
                 {/* Step number circle */}
                 <div className={`relative flex-shrink-0 w-14 h-14 rounded-2xl border ${step.iconBg} flex items-center justify-center z-10`}>
                   <step.icon className={`w-6 h-6 ${step.color}`} />
-                  <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-slate-900 border border-slate-700 flex items-center justify-center">
+                  <div className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-blue-950 border border-blue-900 flex items-center justify-center">
                     <span className="text-[9px] font-bold text-muted-foreground">{step.num}</span>
                   </div>
                 </div>

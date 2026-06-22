@@ -35,6 +35,9 @@ export class ErrorBoundary extends Component<Props, State> {
           </svg>
           <h3 className="text-lg font-semibold text-white mb-2">Something went wrong</h3>
           <p className="text-sm text-slate-400 mb-4">We encountered an error loading this section.</p>
+          <pre className="text-xs text-red-400 text-left overflow-auto max-w-full p-2 bg-black/50 mb-4">
+            {this.state.error?.message}
+          </pre>
           <button
             onClick={() => this.setState({ hasError: false })}
             className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white rounded-lg transition-colors text-sm"
