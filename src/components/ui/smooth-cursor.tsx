@@ -70,7 +70,7 @@ export function SmoothCursor({
   const shouldReduceMotion = useReducedMotion();
 
   // User preference state
-  const [userPrefersCursor, setUserPrefersCursor] = useState<boolean>(true);
+  const [userPrefersCursor, setUserPrefersCursor] = useState<boolean>(false);
 
   const cursorX = useSpring(0, springConfig);
   const cursorY = useSpring(0, springConfig);
